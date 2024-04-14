@@ -50,20 +50,20 @@ A record which has a visibility of private is verifiably encrypted in the transi
 
 
 An example record can be shown below by calling the mint_private transition from the token workshop: 
-
-“{
+```bash
+{
   owner: aleo13ssze66adjjkt795z9u5wpq8h6kn0y2657726h4h3e3wfnez4vqsm3008q.private,
   amount: 100u64.private,
   _nonce: 5861592911433819692697358191094794940442348980903696700646555355124091569429group.public
-}”
-
+}
+```
 The "amount" field refers to the data field of the record and can include different types such as microcredits or fields. This helps developers build a wide range of dApps by providing flexibility and privacy at the same time.
 
 ## Consuming Records
 
 Generating transactions involves creating commitments to new records, as well as computing unique serial numbers for consumed records.
 
-In the above scheme, rom represents the old record that is consumed, whereas rnm represents the new record that is created.
+In the above scheme, r<sub>om</sub> represents the old record that is consumed, whereas r<sub>nm</sub> represents the new record that is created.
 
 ![RecordConsumption](https://github.com/Aleo-DevRel-Ambas/zero-to-zk/assets/76889160/26f54ddd-9afb-4fe4-ae2a-c5c7250bcc4b)
 
