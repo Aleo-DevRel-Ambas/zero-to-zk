@@ -8,8 +8,7 @@ The UTXO model, used in Bitcoin and other blockchain systems, works by treating 
 
 Suppose Person A wants to make a payment of 3 BTC to Person B. Currently, Person A has a total of 6 BTC in two different UTXOs: one containing 4 BTC and another containing 2 BTC; Person B has a total of 2 BTC in a single UTXO. Since one of Person A's UTXOs contains enough BTC, the payment will be made using it.
 
-![UTXO](https://github.com/Aleo-DevRel-Ambas/zero-to-zk/assets/76889160/97509b87-e342-4e92-9b13-68b88dd669eb)
-
+![UTXOdefined](https://github.com/Aleo-DevRel-Ambas/zero-to-zk/assets/76889160/7b7e4676-1e5c-4299-a69b-f682eefa1d83)
 
 In the end, Person A will have a total of 3 BTC across two different UTXOs, which are 1 BTC and 2 BTC. Meanwhile, Person B will have a total of 5 BTC across two UTXOs, which are 3 BTC and 2 BTC.
 
