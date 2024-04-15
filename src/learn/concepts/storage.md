@@ -6,14 +6,11 @@ In Blockchains, there are two main state models: UTXO (Unspent Transaction Outpu
 
 The UTXO model, used in Bitcoin and other blockchain systems, works by treating each piece of cryptocurrency as a distinct and unspent "chunk" of digital money. When you want to send tokens, these chunks—essentially digital tokens you haven’t yet spent—are gathered to form your transaction. These tokens are used as inputs to pay someone, and once they’re used, they're considered spent. This method ensures every coin can be tracked securely, preventing any chance of spending the same tokens twice.
 
-Suppose we have a coin named "Dollars" on a blockchain that operates using the UTXO model. This coin is distinct from the traditional dollar because it can be divided into decimal amounts and can be used to make payments of any size.
+Person A wants to make a payment to Person B. Currently, Person A has a total of X amount in two different UTXOs, each containing a different value. Person B has a single UTXO with a starting value of Y. Since one of Person A's UTXOs contains enough value, the payment will be made using it. The used UTXO will be shown in red to indicate it is spent, and the unspent amount will be returned to Person A's wallet, indicated in green. The payment amount will also be sent to Person B's wallet, labeled in green.
 
-Person A wants to make a payment of 3 Dollars to Person B. Currently, Person A has a total of 6 Dollars in two different UTXOs: one containing 4 Dollars and another containing 2 Dollars; Person B has a total of 2 Dollars in a single UTXO. Since one of Person A's UTXOs contains enough Dollars, the payment will be made using it.
+![UTXOwoplaceholders](https://github.com/Aleo-DevRel-Ambas/zero-to-zk/assets/76889160/b2aaf579-bb92-4597-8f42-cbcc72602fe2)
 
-![UTXOCash](https://github.com/Aleo-DevRel-Ambas/zero-to-zk/assets/76889160/818f3206-c2c3-44d3-b817-748a2be8ecb7)
-
-
-In the end, Person A will have a total of 3 Dollars across two different UTXOs, which are 1 Dollars and 2 Dollars. Meanwhile, Person B will have a total of 5 Dollars across two UTXOs, which are 3 Dollars and 2 Dollars.
+In the end, Person A will have a total of (X - payment) across two different UTXOs. Meanwhile, Person B will have a total of (Y + payment) across two UTXOs.
 
 ## Why Record Model?
 
