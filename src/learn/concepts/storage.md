@@ -45,25 +45,25 @@ An Aleo record is serialized in the following format:
 | Parameter  |             Type             | Description                                                                                         |
 |------------|:----------------------------:|-----------------------------------------------------------------------------------------------------|
 |     owner    |            address           |                      The address public key of the owner of the program record                      |
-|    data    |    modifiable   | A data payload containing arbitrary application-dependent information                               |
+|    data    |    `modifiable`   | A data payload containing arbitrary application-dependent information                               |
 |    nonce   |             group            |                            The serial number nonce of the program record                            |
 | visibility |             enum             | The record's visibility, which can either be public or private. Private if otherwise is not stated. |
 
 
 Owner
-aleo1r0dry2tlhjt0yplctz85692kjpqsadn7xgxsmrehkasykjxynypqza3fpl
+`aleo1r0dry2tlhjt0yplctz85692kjpqsadn7xgxsmrehkasykjxynypqza3fpl`
 
 
 The record owner is an account address, and specifies the party who is authorized to spend the record.
 
 
 Data
-[ RECORD BYTE MAP ]
+`[ RECORD BYTE MAP ]`
 
 The record data encodes arbitrary application information.
 
 Nonce
-3024738992072387217402876176731225730589877991873828351104009809002984426287group
+`3024738992072387217402876176731225730589877991873828351104009809002984426287group`
 
 The serial number nonce is used to create a unique identifier for each record, and is computed via a PRF evaluation of the address secret key ask of the owner and the record's serial number.
 
@@ -101,7 +101,7 @@ In general, to consume a record, a few parameters must be satisfied:
 
 ## Dev Usage
 
-For development, let's illustrate a Leo example of how we can code a private transfer function as shown in Figure 1.
+For development, let's illustrate a Leo example of how we can code a private transfer function as shown in Figure 2.
 
 The Alice's wallet is:
 `aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau`
