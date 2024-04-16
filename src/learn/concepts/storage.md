@@ -36,7 +36,7 @@ This example can extends to more complex programs by creating multiple transitio
 
 Each account record contains information that specifies the record owner, its stored value, and its application state. Records in Aleo are consumed and newly created from a transition function. A transaction will store multiple transitions, each of which is responsible for the consumption and creation of its individual records. Optionally, if the visibility of the record is private, it can be encrypted using the owner's address secret key.
 
-Transitions can not consume a records that is created by other program. We will examine this later in this section.
+Transitions can not consume a record that is created by other program. We will examine this later in this section.
 
 ## Components of a Record
 
