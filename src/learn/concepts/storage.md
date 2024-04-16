@@ -2,7 +2,7 @@
 # Record
 A record is a fundamental data structure for encoding user assets and application state.
 
-In Blockchains, there are two main state models: UTXO (Unspent Transaction Output) and Account Model (Introduced by Ethereum). The record model in Aleo is a variation of UTXO model. Before moving on to the Record model, briefly discuss the UTXO model for a better understanding.
+In Blockchains, there are two main state models: UTXO (Unspent Transaction Output) and Account Model (Introduced by Ethereum). The record model in Aleo is a variation of UTXO model. Before moving on to the Record model, we briefly discuss the UTXO model for a better understanding.
 
 The UTXO model, used in Bitcoin and other blockchain systems, works by treating each piece of cryptocurrency as a distinct and unspent "chunk" of digital money. When you want to send tokens, these chunks—essentially digital tokens you haven’t yet spent—are gathered to form your transaction. These tokens are used as inputs to pay someone, and once they’re used, they're considered spent. This method ensures every coin can be tracked securely, preventing any chance of spending the same tokens twice.
 
@@ -34,7 +34,7 @@ These records will not appear directly in Alice's or Bob's wallets; instead, the
 
 This example can extends to more complex programs by creating multiple transitions. Each transaction can include 32 transitions, which all of them are responsible from consuming and creating their own records.
 
-Each account record contains information that specifies the record owner, its stored value, and its application state. Records in Aleo are consumed and newly created from a transition function. A transaction will store multiple transitions, each of which is responsible for the consumption and creation of its individual records. Optionally, if the visibility of the record is private, it can be encrypted using the owner's address secret key.
+Each record contains information that specifies the record owner, its stored value, and its application state. Records in Aleo are consumed and newly created from a transition function. A transaction will store multiple transitions, each of which is responsible for the consumption and creation of its individual records. Optionally, if the visibility of the record is private, it can be encrypted using the owner's address secret key.
 
 Transitions can not consume a record that is created by other program. We will examine this later in this section.
 
@@ -47,7 +47,6 @@ An Aleo record is serialized in the following format:
 |     owner    |            address           |                      The address public key of the owner of the program record                      |
 |    data    |    `modifiable`   | A data payload containing arbitrary application-dependent information                               |
 |    nonce   |             group            |                            The serial number nonce of the program record                            |
-| visibility |             enum             | The record's visibility, which can either be public or private. Private if otherwise is not stated. |
 
 
 Owner
@@ -67,9 +66,6 @@ Nonce
 
 The serial number nonce is used to create a unique identifier for each record, and is computed via a PRF evaluation of the address secret key ask of the owner and the record's serial number.
 
-(Optional) Record Encryption
-A record which has a visibility of private is verifiably encrypted in the transition and stored on the ledger. This enables users to securely and privately transfer record data and values between one another over the public network. Only the sender and receiver with their corresponding account view keys are able to decrypt these records.
-
 
 An example record can be shown below by calling the mint_private transition from the token workshop: 
 ```bash
@@ -81,6 +77,16 @@ An example record can be shown below by calling the mint_private transition from
 ```
 
 The "amount" field refers to the data field of the record and can include various types such as microcredits, fields, and even custom fields. This provides developers the flexibility and privacy needed to build a wide range of dApps.
+
+## Record Encryption
+
+Record private data is encoded as a list of field elements which is encrypted with owner's view key, ensuring its integrity, and then recorded on the blockchain ledger.
+
+*The view key of an Aleo account is derived from its private key and is primarily used for encrypting and decrypting Aleo blockchain transaction input/output.*
+
+This process enables users to securely and privately transfer data and values across the network. A key aspect of this system is that only the sender and receiver, who each possess their respective view keys, can unlock and access the contents of these records. This safeguard ensures that sensitive information is protected from unauthorized access while maintaining transparency and trust in the transaction process, providing a robust foundation for secure communications.
+
+The code for encryption and decryption is available in the snarkVM sections, which can be accessed at the [encrypt](https://github.com/AleoHQ/snarkVM/blob/testnet3/circuit/program/src/data/record/encrypt.rs) and [decrypt](https://github.com/AleoHQ/snarkVM/blob/testnet3/circuit/program/src/data/record/decrypt.rs) pages, respectively.
 
 ## Consuming Records
 
@@ -96,10 +102,10 @@ Each commitment to a record requires the record owner’s address public key ‘
 
 In general, to consume a record, a few parameters must be satisfied:
 
--	A record must be owned by the program that is being produced.
+-	The record type must be defined by the program that is being produced.
 -	The record's owner field must match with the owner who is trying to consume it.
 
-## Dev Usage
+## Developer Usage
 
 For development, let's illustrate a Leo example of how we can code a private transfer function as shown in Figure 2.
 
@@ -125,8 +131,13 @@ First, alice mints 50 tokens with `mint_private` transition and gets the followi
 {
   owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau.private,
   amount: 50u64.private,
-  _nonce: 184413378105284381723289691727824174740605908460790754600745631850492143317group.public
+  _nonce: 3450106169496550617224595883750670565200268145577126679432992175407463806853group.public
 }
+```
+This output is the plain text representation of the record, which is not encrypted. Below is the encrypted state (visible to the public) of the previous plain text record:
+
+```
+record1qyqsp2cu6v5ve727k3rd66uwhpna7mk4vzxmjqf8sjej779ucxfd7lq2qyrxzmt0w4h8ggcqqgqsqu3phm8a8294dh0j74ag609uy26kcutekkvs326f0t3r668x23cps5m7y9d9hs0lttxq420ektrg0ef8vf9lhwpkdc57kxzrah4s5qrsvmgtpe
 ```
 
 Now, she wants to send 30 tokens to Bob privately. To do so, she must supply the record above, which contains 50 tokens, to the `transfer_private` transition:
@@ -161,9 +172,23 @@ The output of the following transition is:
 {
   owner: aleo1mgfq6g40l6zkhsm063n3uhr43qk5e0zsua5aszeq5080dsvlcvxsn0rrau.private,
   amount: 20u64.private,
-  _nonce: 718087348079827453317982111911627041443956365076973584768367260125845347508group.public
+  _nonce: 1971509502429758089141761286376144078821807406619550800004229996557640403164group.public
 }
+```
 
+The ciphertext corresponding to Alice's record plaintext is:
+```
+record1qyqsqqnmndy7k3nd5zedgywnufy724ztjvvr40re7njqf962upmdapq8qyrxzmt0w4h8ggcqqgqsq59hzqsp35hwvpk4658lsl6e7j7n3k3pa89wyywqam3m62pghjcvmsyys003v2ejkq4y9wxt5wjpekmun8dam9kzwpe6yzamnd74tvzq7qzqfu
+```
+
+In Bob's case, we are not able to see the plaintext on-chain, and we can only see the record ciphertext (encrypted record):
+
+```
+record1qyqspu23kewnpp9r9r7kwaav5d60yle6pzknghwvf6l56jzdga9fracrqyrxzmt0w4h8ggcqqgqsqtvde34ft8fwfsguva8ry2e628r7sx03jrl3f52s3r9n99tnuyc3ky94fd9dk0smq2syv733jffr0hwxhxee2x4a8wfvfm9sddaelupq6tumud
+```
+
+However, Bob can view its record plaintext because he possesses the view key:
+```
 // Bob's record which contains the payment
 {
   owner: aleo1r0dry2tlhjt0yplctz85692kjpqsadn7xgxsmrehkasykjxynypqza3fpl.private,
