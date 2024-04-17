@@ -17,6 +17,9 @@ An Aleo node can be run in three modes.
 ### [Validator](../network/validators)
 
 
+## Who uses snarkOS ?
+>Everyone involved in Aleo uses snarkOS both to submit transactions and to fetch their data.
+
 
 
 

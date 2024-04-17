@@ -6,4 +6,5 @@ The snarkVM platform allows users to write and execute smart contracts in an eff
 - `snarkVM algorithms` - the implementation and execution of the proof system and the primitives that support it
 - `snarkVM ledger` - data structures and methods that enable storage and interaction with the Aleo blockchain.
 
-Proving System Overview (Varuna)
+TODO - Proving System Overview (Varuna)\
+TODO - Current snarkvm technical docs
