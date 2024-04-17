@@ -16,7 +16,7 @@ In the end, Person A will have a total of (X - payment) across two different UTX
 
 Although the account model is easier for developers since it organizes the global state of a system using account addresses, it poses a privacy issue. A private account model can keep transactions confidential, but it can't fully protect user privacy because the account addresses themselves cannot be encrypted.
 
-The record model improves privacy by using Program IDs instead of account addresses to organize data. In this model, programs are responsible for maintaining their own internal states. This also means that there is no need to access and update the complete state of the system for each transaction, which makes Aleo's design more efficient.
+The record model improves privacy by using Program IDs instead of account addresses to organize data. In this model, programs are responsible for maintaining their own internal states. This also means that there is no need to access and update the complete state of the network for each transaction, which makes Aleo's design more efficient.
 
 ## How It Works?
 
@@ -87,6 +87,8 @@ Record private data is encoded as a list of field elements which is encrypted wi
 This process enables users to securely and privately transfer data and values across the network. A key aspect of this system is that only the sender and receiver, who each possess their respective view keys, can unlock and access the contents of these records. This safeguard ensures that sensitive information is protected from unauthorized access while maintaining transparency and trust in the transaction process, providing a robust foundation for secure communications.
 
 The code for encryption and decryption is available in the snarkVM sections, which can be accessed at the [encrypt](https://github.com/AleoHQ/snarkVM/blob/testnet3/circuit/program/src/data/record/encrypt.rs) and [decrypt](https://github.com/AleoHQ/snarkVM/blob/testnet3/circuit/program/src/data/record/decrypt.rs) pages, respectively.
+
+Additionally, users can decrypt their encrypted records using their view key via a web interface available at [Aleo Tools](https://aleo.tools/record). This feature allows for the practical application of decryption processes directly through a browser.
 
 ## Consuming Records
 
