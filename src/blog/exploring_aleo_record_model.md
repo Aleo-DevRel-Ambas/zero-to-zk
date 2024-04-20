@@ -33,9 +33,10 @@ Aleo uses a variation of the UTXO model - the record model.
 <img src="./images/account_vs_utxo.png" alt="Account vs UTXO"/>
 </p>
 
-<center>Diagram taken from <a href="https://www.galaxy.com/insights/research/mev-how-flashboys-became-flashbots/"> here</a>
-</center>
-<br>
+<p align="center" width="100%">
+Diagram taken from <a href="https://www.galaxy.com/insights/research/mev-how-flashboys-became-flashbots/"> here</a>
+</p>
+<br/>
 
 ### Account Model
 In the account model as used in Ethereum, the application state can be found by referencing to a particular address. 
@@ -46,18 +47,21 @@ As such, anyone would be able to view the activities of any account, simply with
 <img src="./images/ethereum_storage.png" alt="Ethereum Storage Diagram"/>
 </p>
 
-<center>Diagram taken from <a href="https://ethereum.org/en/develope.rs/docs/accounts/"> ethereum site</a>
-</center>
-<br>
+<p align="center" width="100%">
+Diagram taken from <a href="https://ethereum.org/en/develope.rs/docs/accounts/"> ethereum site</a>
+</p>
+<br/>
 
 
 <p align="center" width="100%">
 <img src="./images/ethereum_world_state.png" alt="Ethereum World State Diagram"/>
 </p>
 
-<center>Diagram taken from <a href="https://www.lucassaldanha.com/ethereum-yellow-paper-walkthrough-2/"> here</a>
-</center>
-<br>
+<p align="center" width="100%">
+Diagram taken from <a href="https://www.lucassaldanha.com/ethereum-yellow-paper-walkthrough-2/"> here</a>
+</p>
+
+<br/>
 
 
 ### Record Model
@@ -68,9 +72,11 @@ In the record model, the application state, along with it's owner are encrypted 
 <img src="./images/record.png" alt="Aleo Records Diagram"/>
 </p>
 
-<center>Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
-</center>
-<br>
+<p align="center" width="100%">
+Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
+</p>
+
+<br/>
 
 
 <p align="center" width="100%">
@@ -78,9 +84,10 @@ In the record model, the application state, along with it's owner are encrypted 
 </p>
 
 
-<center>Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
-</center>
-<br>
+<p align="center" width="100%">
+Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
+</p>
+<br/>
 
 
 ## Record Model Explained
