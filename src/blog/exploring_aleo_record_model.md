@@ -121,25 +121,25 @@ The record can encode arbitrary application information. The "amount" key is the
 
 The serial number nonce is used to create a unique identifier for each record, and is computed via a PRF evaluation of the address secret key ask of the owner and the record's serial number.
 
-For a practical demonstration of record, see:
+<!-- Use this if iframe is working -->
+<!-- For a practical demonstration of record, see:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/JIgrKv_Q6Jo?si=RRLiTa9n4iYMG63z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JIgrKv_Q6Jo?si=RRLiTa9n4iYMG63z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
 
-<!-- TODO: Delete this if the iframe is working. -->
-For a practical demonstration of record, click [here](https://youtu.be/JIgrKv_Q6Jo?feature=shared).
+For a practical demonstration of a record in Aleo, see [here](https://youtu.be/JIgrKv_Q6Jo?feature=shared).
 
-<!-- TODO: Rephrase and explain -->
 
 ### Updating State
 In the record model, applications update their state by consuming records containing the old state, and producing new records that contain the updated state. Records that have been used will be marked as spent and cannot be used again.
 
 
-<center>
+<p align="center" width="500">
 <img src="./images/utxo.png" alt="UTXO diagram">
-</center>
+</p>
 
-<center>Diagram taken from <a href="https://adapulse.io/the-extensive-guide-on-eutxo-utxo-and-the-accounts-based-model/"> here</a>
-</center>
+<p align="center" width="100%">
+Diagram taken from <a href="https://adapulse.io/the-extensive-guide-on-eutxo-utxo-and-the-accounts-based-model/"> here</a>
+</p>
 <br>
 
 The consumption and production of records is typically done in a transition function. A transaction in Aleo consists of 32 transitions, of which one is reserved for the transaction fee. 
