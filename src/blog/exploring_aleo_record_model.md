@@ -28,7 +28,11 @@ There are two main state models used in blockchains - UTXO (unspent transaction 
 
 Aleo uses a variation of the UTXO model - the record model.
 
-![alt text](./images/account_vs_utxo.png)
+
+<p align="center" width="100%">
+<img src="./images/account_vs_utxo.png" alt="Account vs UTXO"/>
+</p>
+
 <center>Diagram taken from <a href="https://www.galaxy.com/insights/research/mev-how-flashboys-became-flashbots/"> here</a>
 </center>
 <br>
@@ -38,18 +42,18 @@ In the account model as used in Ethereum, the application state can be found by 
 
 As such, anyone would be able to view the activities of any account, simply with the knowledge of the address.
 
-<center>
+<p align="center" width="100%">
 <img src="./images/ethereum_storage.png" alt="Ethereum Storage Diagram"/>
-</center>
+</p>
+
 <center>Diagram taken from <a href="https://ethereum.org/en/develope.rs/docs/accounts/"> ethereum site</a>
 </center>
 <br>
 
 
-<center>
+<p align="center" width="100%">
 <img src="./images/ethereum_world_state.png" alt="Ethereum World State Diagram"/>
-
-</center>
+</p>
 
 <center>Diagram taken from <a href="https://www.lucassaldanha.com/ethereum-yellow-paper-walkthrough-2/"> here</a>
 </center>
@@ -60,18 +64,18 @@ As such, anyone would be able to view the activities of any account, simply with
 In the record model, the application state, along with it's owner are encrypted and stored on the blockchain. 
 
 
-<center>
+<p align="center" width="300">
 <img src="./images/record.png" alt="Aleo Records Diagram"/>
-</center>
+</p>
 
 <center>Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
 </center>
 <br>
 
 
-<center>
+<p align="center" width="100%">
 <img src="./images/aleo_ledger.png" alt="Aleo World State Diagram"/>
-</center>
+</p>
 
 
 <center>Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
@@ -146,9 +150,9 @@ The consumption and production of records is typically done in a transition func
 
 
 
-<center>
+<p align="center" width="100%">
 <img src="./images/transaction_in_aleo.png"  alt="Transaction in Aleo"/>
-</center>
+</p>
 
 ## Why Record Model?
 
