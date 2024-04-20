@@ -128,7 +128,7 @@ The record can encode arbitrary application information. The "amount" key is the
 
 <b>Nonce</b>
 <br/>
-`3024738992072387217402876176731225730589877991873828351104009809002984426287group`
+`5861592911433819692697358191094794940442348980903696700646555355124091569429group`
 
 The serial number nonce is used to create a unique identifier for each record, and is computed via a PRF evaluation of the address secret key ask of the owner and the record's serial number.
 
