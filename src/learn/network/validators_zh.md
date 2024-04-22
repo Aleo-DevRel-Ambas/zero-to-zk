@@ -32,7 +32,13 @@ AleoBFT的机制保证了如果一个恶意的节点想要攻击网络，则至�
 
 
 
+5.Transaction和Solution被验证者节点确认的过程
 
+![image-20240422165659999](/Users/cedric/Documents/AleoDevRel/DevDoc/zero-to-zk/src/learn/network/images/validator-process-transaction.png)
 
-
+- Transaction/Solution通过P2P网络或者RPC进入到验证者节点的的消息池
+- 验证者节点将从消息池中选出一些Transactions/Solutions放入到BatchPropose（除了Transactions和Solutions，BatchPropose需要包含前一个轮次的2f + 1个BatchCertificate），并广播给其他的验证者节点。
+- 其他的验证者节点在收到BatchPropose并确保它的合法性之后，会对该BatchPropose进行签名得到BatchSignature，并将BatchSignature返回给该验证者节点。
+- 当验证者节点收到超过2f + 1的BatchSignature之后，将其聚合成为一个BatchCertificate，并广播给其他的验证者节点。
+- 所有的节点都会执行并重复这个过程，产生的BatchCertificate构成一个DAG。当DAG被Commit后，新的区块产生，Transaction和Solution都会被包含在新的区块中。
 
