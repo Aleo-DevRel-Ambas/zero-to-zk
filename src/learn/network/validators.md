@@ -18,6 +18,8 @@ To become a validator node, one needs to stake a minimum of 10,000,000 (10 milli
 
 When one possesses only a small amount of *AleoCredits*, although unable to become an independent validator node, they can participate in staking through delegation.
 
+Due to the fact that validator nodes in the network communicate with each other to obtain status information, the more validator nodes there are, the greater the magnitude of network communication required, with communication complexity being O(n). The increase in communication complexity leads to longer block generation times. In the Aleo network, the maximum number of validator nodes is limited to 200 to balance decentralization and network efficiency.
+
 
 
 ### Delegated Staking
