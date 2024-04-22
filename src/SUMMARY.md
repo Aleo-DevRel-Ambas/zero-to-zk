@@ -18,6 +18,7 @@
     - [snarkVM](./learn/zkcloud/snarkvm.md)
   - [Network](./learn/network/README.md)
     - [Validators](./learn/network/validators.md)
+    - [Clients](./learn/network/clients.md)
     - [Provers](./learn/network/provers.md)
     - [Consensus](./learn/network/concensus.md)
 
