@@ -36,8 +36,6 @@ Users can cancel their stake at any time. After cancellation, users can withdraw
 
 ![image-20240422165659999](/Users/cedric/Documents/AleoDevRel/DevDoc/zero-to-zk/src/learn/network/images/validator-process-transaction.png)
 
-
-
 The process by which validator nodes confirm Transactions and Solutions involves the following steps:
 
 - Transactions/Solutions enter the validator nodes' mempool via the P2P network or RPC.
@@ -45,3 +43,7 @@ The process by which validator nodes confirm Transactions and Solutions involves
 - Upon receiving *BatchPropose*, other validator nodes validate its legitimacy, sign the *BatchPropose* to generate *BatchSignature*, and return the BatchSignature to the originating validator node.
 - When the originating validator node receives more than 2f + 1 *BatchSignature*s, it aggregates them into a *BatchCertificate* and broadcasts it to other validator nodes.
 - All nodes execute and repeat this process, resulting in a DAG formed by the *BatchCertificate*s. When the DAG is committed, a new block is produced, and Transactions and Solutions are included in the new block.
+
+
+
+![image-20240422175911657](/Users/cedric/Library/Application Support/typora-user-images/image-20240422175911657.png)
