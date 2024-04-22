@@ -1,6 +1,6 @@
 [book]
 title = "zero-to-zk"
-authors = [Zk]
+authors = ["Zk"]
 language = "en"
 multilingual = false
 src = "src"
