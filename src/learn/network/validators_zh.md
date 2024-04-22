@@ -42,3 +42,4 @@ AleoBFT的机制保证了如果一个恶意的节点想要攻击网络，则至�
 - 当验证者节点收到超过2f + 1的BatchSignature之后，将其聚合成为一个BatchCertificate，并广播给其他的验证者节点。
 - 所有的节点都会执行并重复这个过程，产生的BatchCertificate构成一个DAG。当DAG被Commit后，新的区块产生，Transaction和Solution都会被包含在新的区块中。
 
+![image-20240422175927317](/Users/cedric/Library/Application Support/typora-user-images/image-20240422175927317.png)
