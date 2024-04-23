@@ -1,15 +1,22 @@
 # Consensus
-Aleo uses a novel consensus mechanism to achieve the goal of secure, resilient consensus system and instant finality for block confirmation called AleoBFT. It uses proof-of-stake (POS) ensure validators and rewarded for maintaining overall system integrity and performance.  
+## Overview
+Aleo Network utilizes a novel consensus mechanism called AleoBFT to achieve a secure and resilient consensus system with instant finality for block confirmation. This mechanism combines proof-of-stake (POS) to ensure that validators are rewarded for maintaining the overall system integrity and performance.
 
 Aleo Network is run and maintained by three groups of participants:  
-Stakers - lock up Aleo Credits (AC) to help more validators participate in consensus on the Network.  
-Provers - run specialized hardwares to generate proofs and solve coinbase puzzles that help secure the Network.  
-Validator - validate transactions and participate in consensus on the Network.  
+- **Stakers** - delegate their Aleo Credits (AC) to help onboard more validators and participate in consensus on the Network.  
+- **Provers** - Utilize specialized hardware to generate proofs and solve coinbase puzzles, contributing to the security of the network.
+- **Validators** - Verify transactions and actively participate in the consensus process on the network.
 
-Everyone can be a staker and locks up their Aleo Credits for a period of time to help support the security of Aleo Network. While the minimum amount to stake is 1 AC but it won't start earning rewards until the amount staked is at least 10 ACs. Stakers help lowering the barriers of becoming a validator by delegating their stakes to validator of their choice.
+Everyone can become a staker by locking up their Aleo Credits for a certain period of time to support the security of the Aleo Network. While the minimum amount to stake is 1 AC, stakers will only start earning rewards once they have staked at least 10 ACs. Stakers help lower the barriers to becoming a validator by delegating their stakes to validators of their choice.  
 
-Provers are required to run specialized GPUs and CPUs to generate solutions in SNARK proofs for PoSW (Proof-of-Succint-Work) coinbase puzzles. They are rewarded based on how efficient and effective on generating solutions to the puzzles. One key thing to note is that provers do not produce blocks but they are incentivised to help improve the process of generating proofs and thus reducing costs and decreasing latency for program execution.
+Learn more about **stakers** at [here]().  
 
-Validators helps secure the network through AleoBFT (to be discuss more at below) and must have at least 1 million AC of stakes. The main function of validators is to verify proofs and validate transactions before including them into a confirmed block.  
+Provers are required to run specialized GPUs and CPUs to generate solutions in SNARK proofs for PoSW (Proof-of-Succinct-Work) coinbase puzzles. They are rewarded based on their efficiency and effectiveness in generating solutions to the puzzles. It's important to note that provers do not produce blocks, but they are incentivized to improve the process of generating proofs, reducing costs, and decreasing latency for program execution.  
 
+Learn more about **provers** at [here]().  
 
+Validators play a crucial role in securing the network through AleoBFT (to be discussed further below) and must have at least 1 million AC of stakes to get started. The main function of validators is to verify proofs and validate transactions before including them in a confirmed block.
+
+Learn more about **validators** at [here]().  
+
+## AleoBFT
