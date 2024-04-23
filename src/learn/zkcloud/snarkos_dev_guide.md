@@ -8,15 +8,19 @@
   * [2.1 Decrypt Record](#21-decrypt-record)
   * [2.2 Deploy Program](#22-deploy-program)
   * [2.3 Execute Transaction](#23-execute-transaction)
-  * [2.4 Scan Records](#23-scan-records)
+  * [2.4 Scan Records](#24-scan-records)
 * [3. Local Devnet](#3-local-devnet)
   * [3.1 Install `tmux`](#31-install-tmux)
-  * [3.2 Start a Local Devnet](#31-start-a-local-devnet)
-  * [3.3 View a Local Devnet](#31-view-a-local-devnet)
-  * [3.4 Stop a Local Devnet](#31-stop-a-local-devnet)
+  * [3.2 Start a Local Devnet](#32-start-a-local-devnet)
+  * [3.3 View a Local Devnet](#33-view-a-local-devnet)
+  * [3.4 Stop a Local Devnet](#34-stop-a-local-devnet)
 
 
 ### 1. Quick Start
+
+#### Why do we need 4 validators at a minimum ?
+> 4 validators are required to satisfy the requirements to run AleoBFT consensus correctly.
+The required condition is that AleoBFT requires `2f+1` honest nodes to produce blocks where `f=Byzantine node`, this is to ensure `> 66%` are honest nodes.
 
 In the first terminal, start the first validator by running:
 ```bash
@@ -110,7 +114,7 @@ snarkos developer execute [OPTIONS] --private-key <PRIVATE_KEY> --query <QUERY> 
 ```
 
 #### 2.4 Scan Records
-```
+```bash
 snarkos developer scan [OPTIONS] --endpoint <ENDPOINT>
 ```
 **[Execute Options]**
@@ -191,12 +195,21 @@ To toggle to the previous node in a local devnet, run:
 Ctrl+b p
 ```
 
+#### Scroll Node
+
+To scroll easily run:
+```bash
+Ctrl+b [
+```
+
 #### Select a Node (choose-tree)
 
 To select a node in a local devnet, run:
 ```bash
 Ctrl+b w
 ```
+
+To quit scroll press `q`
 
 #### Select a Node (manually)
 
