@@ -114,7 +114,7 @@ To run a node with custom settings, refer to the options and flags available in 
 
 The full list of CLI flags and options can be viewed with `snarkos --help`:
 ```
-snarkOS 
+snarkOS
 The Aleo Team <hello@aleo.org>
 
 USAGE:
@@ -139,24 +139,24 @@ USAGE:
 
 OPTIONS:
         --network <NETWORK_ID>                  Specify the network ID of this node [default: 3]
-        
+
         --validator                             Specify this node as a validator
         --prover                                Specify this node as a prover
         --client                                Specify this node as a client
-        
+
         --private-key <PRIVATE_KEY>             Specify the node's account private key
         --private-key-file <PRIVATE_KEY_FILE>   Specify the path to a file containing the node's account private key
-        
+
         --node <IP:PORT>                        Specify the IP address and port for the node server [default: 0.0.0.0:4130]
         --connect <IP:PORT>                     Specify the IP address and port of a peer to connect to
- 
+
         --rest <REST>                           Specify the IP address and port for the REST server [default: 0.0.0.0:3030]
         --norest                                If the flag is set, the node will not initialize the REST server
-        
+
         --nodisplay                             If the flag is set, the node will not render the display
         --verbosity <VERBOSITY_LEVEL>           Specify the verbosity of the node [options: 0, 1, 2, 3] [default: 2]
         --logfile <PATH>                        Specify the path to the file where logs will be stored [default: /tmp/snarkos.log]
-        
+
         --dev <NODE_ID>                         Enables development mode, specify a unique ID for this node
 ```
 
@@ -173,7 +173,7 @@ OPTIONS:
 - Ensure ports `4130/tcp` and `3030/tcp` are open on your router and OS firewall.
 - Ensure `snarkOS` is started using `./run-client.sh` or `./run-prover.sh`.
 
-### 3. I can't generate a new address ### 
+### 3. I can't generate a new address ###
 
 - Before running the command above (`snarkos account new`) try `source ~/.bashrc`
 - Also double-check the spelling of `snarkos`. Note the directory is `/snarkOS`, and the command is `snarkos`
