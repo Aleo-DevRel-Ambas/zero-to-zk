@@ -1,6 +1,6 @@
 # Consensus
 ## Overview
-Aleo Network utilizes a novel consensus mechanism called AleoBFT to achieve a secure and resilient consensus system with instant finality for block confirmation. This mechanism combines proof-of-stake (POS) to ensure that validators are rewarded for maintaining the overall system integrity and performance.
+Aleo Network employs a unique consensus mechanism known as AleoBFT to achieve a secure and resilient consensus system with instant finality for block confirmation. This mechanism combines proof-of-stake (POS) to ensure that validators are rewarded for maintaining the overall system integrity and performance.
 
 Aleo Network is run and maintained by three groups of participants:  
 - **Stakers** - Delegate staked Aleo Credits (AC) to help onboard more validators and participate in consensus on the Network.  
@@ -26,5 +26,4 @@ AleoBFT is a new hybrid architecture for consensus. It incentivises validators t
 
 AleoBFT guarantees instant finality once validators achieve consensus for each block. With instant finality, not only validators enjoy better node stability but also creates smooth experience for applications developers and users. And this guarantee makes interoperability with other ecosystem simpler.
 
-Aleo topmost priority is to ensure decentralization. AleoBFT incentivise provers also to become a validator themselves by staking 1 million ACs. This helps further decentralise Aleo network and fortifies censorship-resistence guarantee.
-
+AleoBFT provers are computing core components of ZK proofs and receive shares of coinbase rewards by solving and producing these coinbase proofs, which is called Proof of Succint Work (PoSW). This incentivise provers also to become a validator themselves by accumulate and stake 1 million ACs. By having broader rewards distribution, it helps Aleo Network to achieve greater proving capacity, further decentralise and scaling Aleo network and fortifies censorship-resistence guarantee.
