@@ -14,9 +14,9 @@ Prover是Aleo网络中的一个重要组成部分，它不参与到Aleo的网络
 
 用户可以通过[浏览器](https://testnet3.aleoscan.io)来查看CoinbaseReward、BlockReward、以及PuzzleReward。
 
-> PuzzleReward = CoinbaseReward * 1 / 2 
+> PuzzleReward = CoinbaseReward * 2 / 3 
 >
-> BlockReward = 23.8 + CoinbaseReward * 1 / 2
+> BlockReward = 23.8 + CoinbaseReward * 1 / 3
 >
 > 其中：
 >

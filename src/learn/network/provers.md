@@ -10,9 +10,9 @@ In the long term, the *CoinbaseReward* incentive that Provers can obtain is dire
 
 Users can view CoinbaseReward, BlockReward, and PuzzleReward through the [browser](https://testnet3.aleoscan.io/).
 
-> PuzzleReward = CoinbaseReward * 1 / 2
+> PuzzleReward = CoinbaseReward * 2/3 
 >
-> BlockReward = 23.8 + CoinbaseReward * 1 / 2
+> BlockReward = 23.8 + CoinbaseReward * 1 / 3
 >
 > Where:
 >
