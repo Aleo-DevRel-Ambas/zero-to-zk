@@ -1,6 +1,6 @@
 # Public vs. Private State
 
-![alt text](./images/aleo.jpeg)
+![aleo logo](./images/aleo.jpeg)
 
 ## Introduction
 The concept of Zero Knowledge proofs was first introduced in 1985 in the paper [The Knowledge Complexity of Interactive Proof Systems](https://epubs.siam.org/doi/10.1137/0218012?utm_source=the+new+stack&utm_medium=referral&utm_content=inline-mention&utm_campaign=tns+platform). However, it is only in recent years that the groundbreaking technology has been feasible to be applicable to blockchains. 
@@ -67,9 +67,9 @@ function foo:
 
 The choice to store an application state as public or private should depend on the particular use case of the program. Instead of simply being a completely privacy or a public chain, Aleo believes in a two pronged approach by offering developers a choice. 
 
-Real-world applications often rely on a combination of public and private information.
+Moreover, real-world applications often rely on a combination of public and private information.
 
-A practical example of such a use case would be in voting. As stated by the Aleo founder, Howard Wu, "In elections, people want to vote, but they don’t want to show other people how they voted. The tally of the votes needs to be public to understand the outcome. Having private votes and public tallies ends up being a capable functionality in applications here."
+A practical example would be in voting. As stated by the Aleo founder, Howard Wu, "In elections, people want to vote, but they don’t want to show other people how they voted. The tally of the votes needs to be public to understand the outcome. Having private votes and public tallies ends up being a capable functionality in applications here."
 
 
 ## Conclusion
