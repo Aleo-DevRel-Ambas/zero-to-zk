@@ -34,7 +34,7 @@ Users can cancel their stake at any time. After cancellation, users can withdraw
 
 ### How validators confirm transactions/solutions
 
-![image-20240422165659999](/Users/cedric/Documents/AleoDevRel/DevDoc/zero-to-zk/src/learn/network/images/validator-process-transaction.png)
+![image-20240422165659999](./images/validator-process-transaction.png)
 
 The process by which validator nodes confirm Transactions and Solutions involves the following steps:
 
@@ -46,4 +46,4 @@ The process by which validator nodes confirm Transactions and Solutions involves
 
 
 
-![image-20240422175911657](/Users/cedric/Library/Application Support/typora-user-images/image-20240422175911657.png)
+![image-20240422175911657](./images/Illustration_DAG.png)
