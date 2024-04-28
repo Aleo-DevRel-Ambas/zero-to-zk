@@ -73,5 +73,5 @@ A practical example would be in voting. As stated by the Aleo founder, Howard Wu
 
 
 ## Conclusion
-Aleo is one of the very first few layer-1 blockchain that emphasizes on programmable privacy. Developers are able to choose if they wish to make certain states of their program public or private. This opens up a whole new set of interesting applications that cannot be built easily with other blockchains. This is certainly an exciting chain to keep an eye out for.
+Aleo is one of the very first few layer-1 blockchains that emphasizes on programmable privacy. Developers are able to choose if they wish to make certain states of their program public or private. This opens up a whole new set of interesting applications that cannot be built easily with other blockchains. This is certainly an exciting chain to keep an eye out for.
 
