@@ -16,12 +16,14 @@ Depending on your system, you can get started programming with Leo in several wa
     - [Windows Installation with Git Bash](#Windows-Installation-with-Git-Bash)
 
 
-After installing the core programs for Leo, you might want to install these additional programs to assist in your programming activities.
-- IDE Syntax Highlighting
+After installing the core software for Leo, you might want to install these syntax highlighting extensions for your code editor.
+- [IDE Syntax Highlighting](#install-leo-ide-syntax-highlighting)
     - VSCode
     - Jetbrains
+    - Sublime Text
 
-- Wallet for Aleo
+You might want to install an Aleo wallet for a user interface.
+- [Aleo Wallet Installation](#aleo-wallet-installation)
     - Leo Wallet
     - Puzzle Wallet
 
@@ -263,9 +265,29 @@ For more details about how to use `leo` Cli, check out [this link](https://devel
 - Connectivity Issues: Check if ports 4133/tcp and 3033/tcp are open. Also, ensure you’ve used the right commands to start snarkOS.
 - Address Generation Issues: Execute source ~/.bashrc before the snarkos account new command. Check your spelling; the directory is /snarkOS, but the command is snarkos.
 
-To use the latest Leo features, install the Leo source code from GitHub.
+## Updating
+To use the latest snarkVM, snarkOS, Leo features, pull the latest code from github, then run
+
+```
+cargo install --path .
+```
+
 ---
 
 ## Install `leo` IDE Syntax Highlighting:
 
-Check out Guide [Here](https://developer.aleo.org/leo/installation#3-ide-syntax-highlighting)
+To improve the developer experience, Aleo has provided extensions for syntax highlighting for your popular code editors. 
+- [VSCode](https://code.visualstudio.com/download)
+    - Install [Leo for VSCode](https://marketplace.visualstudio.com/items?itemName=aleohq.leo-extension) from VSCode marketplace.
+    - The correct extension ID is aleohq.leo-extension, and the description should state "the official VSCode extension for Leo".
+- [IntelliJ](https://www.jetbrains.com/idea/download/?section=mac)
+    - [Extension here](https://plugins.jetbrains.com/plugin/19890-aleo-developer)
+    - Click on the gear icon in the upper right > Plugins > gear icon up top > Install Plugin from Disk > Select the downloaded zip file
+- [Sublime Text](https://www.sublimetext.com/download)
+    - Install [LSP](https://packagecontrol.io/packages/LSP) and [LSP-leo](https://packagecontrol.io/packages/LSP-leo) from Package Control
+
+
+## Aleo Wallet Installation
+Using a chrome browser, install either of these chrome extensions to get an Aleo wallet. You can also request for testnet tokens from these wallets.
+- [Leo Wallet](https://chromewebstore.google.com/detail/leo-wallet/nebnhfamliijlghikdgcigoebonmoibm) 
+- [Puzzle Wallet](https://chromewebstore.google.com/detail/puzzle-aleo-wallet/fdchdcpieegfofnofhgdombfckhbcokj)
