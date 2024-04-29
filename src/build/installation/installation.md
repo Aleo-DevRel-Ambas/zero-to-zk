@@ -1,0 +1,271 @@
+# Setting up the environment
+
+The core Aleo software consists of 3 components: snarkOS, snarkVM, and Leo. snarkOS is the software that hosts the programs and is used by the validators to come to consensus and generate blocks. snarkVM is the virtual machine used to execute programs and generate circuits. Leo is the high level programming language that developers write.
+
+This installation page will guide you how to install each of these 3 components.
+- snarkOS
+- snarkVM
+- Leo
+
+Depending on your system, you can get started programming with Leo in several ways:
+- [Linux and MacOS](#Setup-for-Linux-and-MacOS)
+- [Docker](#docker)
+- Windows
+    - [WSL (Recommended for windows)](#Setup-for-Linux-and-MacOS)
+        - Follow the same instructions as the Linux installation
+    - [Windows Installation with Git Bash](#Windows-Installation-with-Git-Bash)
+
+
+After installing the core programs for Leo, you might want to install these additional programs to assist in your programming activities.
+- IDE Syntax Highlighting
+    - VSCode
+    - Jetbrains
+
+- Wallet for Aleo
+    - Leo Wallet
+    - Puzzle Wallet
+
+
+## Setup for Linux and MacOS
+
+### Check prerequisites
+```
+git --version
+cargo --version
+```
+
+### Install Git and Rust
+
+- Install [Git](https://git-scm.com/downloads)
+- Install [Rust](https://www.rust-lang.org/tools/install)
+
+Note: After installation, if your `git` and `rustc` command doesn't work, try to close the current terminal window, open a new one, and try again.
+
+### Install snarkOS
+
+Clone the `snarkOS` repository
+
+```bash
+git clone https://github.com/AleoHQ/snarkOS.git --depth 1
+cd snarkOS
+
+[For Ubuntu users] A helper script to install dependencies is available. From the snarkOS directory, run:
+
+```bash
+./build_ubuntu.sh
+```
+
+Lastly, install snarkOS:
+```
+cargo install --path .
+```
+
+To test if your snarkOS is working, try typing 
+```bash
+snarkos
+```
+
+You should see something like:
+![SnarkOS is installed successfully](./images/snarkOS-install-success.png)
+
+Please ensure ports 4133/tcp and 3033/tcp are open on your router and OS firewall.
+
+For more details about how to use `snarkOS` CLI, check out [this link](https://github.com/AleoHQ/snarkOS).
+
+If you would like to run a local devnet, run the command
+
+```bash
+./devnet.sh
+```
+
+You would however, first need to install tmux. Instructions can be found on the github [repo](https://github.com/AleoHQ/snarkOS)
+
+### Install SnarkVM
+- Install snarkVM from the github [repo](https://github.com/AleoHQ/snarkvm)
+
+```
+# Download the source code
+git clone https://github.com/AleoHQ/snarkvm && cd snarkvm
+
+# Install snarkVM
+$ cargo install --path .
+```
+
+To test if snarkVM was installed successfully go to the command line and type 
+```bash
+snarkvm
+```
+You should see:
+![snarkVM command](./images/snarkvm-install-success.png)
+
+
+### Install Leo
+
+Clone the `leo` repository
+
+```bash
+# Download the source code
+git clone https://github.com/AleoHQ/leo
+cd leo
+```
+
+Build and install `leo` CLI. Take note that the dot at the end of the command is required.
+
+```bash
+# Build and install
+cargo install --path .
+```
+
+That will generate the executable ~/.cargo/bin/leo.
+
+To test if leo was installed successfully, try typing 
+```bash
+leo
+```
+
+You should see something like:
+![leo installation](./images/leo-install-success.png)
+For more details about how to use `leo` Cli, check out [this link](https://developer.aleo.org/leo/commands)
+
+--- 
+
+## Docker
+
+This is the development environment docker of aleo blockchain with leo, rust, and git installed.
+
+pull docker image
+
+```
+docker pull 0xaragondocker/leo_docker:latest
+```
+
+run docker
+
+```
+docker run -it 0xaragondocker/leo_docker /bin/bash
+```
+
+
+## Windows Installation with Git Bash
+
+### Rust Installation
+Rust runs on many platforms, and there are many ways to install Rust. This guide describes installation via rustup, a tool that manages multiple Rust toolchains in a consistent way across all platforms Rust supports. 
+- On Windows, download and run [rustup-init.exe](https://static.rust-lang.org/rustup/dist/i686-pc-windows-gnu/rustup-init.exe)
+- rustup-init can be configured interactively, and all options can additionally be controlled by command-line arguments, which can be passed through the shell script. Pass --help to rustup-init as follows to display the arguments rustup-init accepts:
+```
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --help
+```
+- The above command needs to executed using WSL
+- If you prefer not to use the shell script, you may directly download rustup-init for windows [here](https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-msvc/rustup-init.exe)
+- verify rust installation by runnin ```rustc --version``` in wsl 
+
+
+### Git
+- Install [Git](https://git-scm.com/downloads)
+- This should give you access to git bash, which we will need for installation of more software below
+- Git bash can be found by searching for 'git' when you press the start button
+- This is how it looks like when you open it up.
+![Git Bash Image](./images/gitbash.png)
+
+
+### CMake
+- Install [CMake](https://cmake.org/download/) by downloading the Windows x64 Installer if you're using a 64-bit machine.
+
+### Install Visual Studio
+- Install [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+- Open Visual Studio
+- Go to Tools -> Get Tools and Features
+![Get Tools and Features](./images/vs-tools.png)
+
+- In the "Workloads" tab enable "Desktop development with C++"
+![Desktop Development with C++](./images/desktop-development-c++.png)
+- Click Modify to install 
+
+
+### LLVM Installation
+- Install [LLVM](https://github.com/llvm/llvm-project/releases/tag/llvmorg-18.1.4)
+- Use the latest version [LLVM-18.1.4-win64.exe](https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.4/LLVM-18.1.4-win64.exe) version for a 64-bit Windows machine
+
+
+### Install tmux for git bash
+- Locate the folder of your git bash. By default it is (C:\Programs Files\Git\usr\bin)
+- Download the latest tmux and libevent packages for your architecture from the [MSYS repo](https://repo.msys2.org/msys/). For me, this was
+    - [tmux-3.4-1-x86_64.pkg.tar.zst](https://repo.msys2.org/msys/x86_64/tmux-3.4-1-x86_64.pkg.tar.zst)
+    - [libevent-2.1.12-4-x86_64.pkg.tar.zst](https://repo.msys2.org/msys/x86_64/libevent-2.1.12-4-x86_64.pkg.tar.zst)
+- Move these 2 files inside your git bash folder (C:\Programs Files\Git\usr\bin)
+
+
+
+### Install SnarkOS
+
+Clone the `snarkOS` repository
+
+```bash
+git clone https://github.com/AleoHQ/snarkOS.git --depth 1
+cd snarkOS
+cargo install --locked --path .
+```
+
+### Install SnarkVM
+- Using git bash
+- Install snarkVM from the github [repo](https://github.com/AleoHQ/snarkvm)
+
+```
+# Download the source code
+git clone https://github.com/AleoHQ/snarkvm && cd snarkvm
+
+# Install snarkVM
+$ cargo install --path .
+```
+
+To test if snarkVM was installed successfully go to the command line and type 
+```bash
+snarkvm
+```
+You should see:
+![snarkVM command](./images/snarkvm-install-success.png)
+
+
+
+### Install Leo
+This is similar to the Linux/MacOS instructions.
+
+Clone the `leo` repository using git bash
+```bash
+# Download the source code
+git clone https://github.com/AleoHQ/leo
+cd leo
+```
+
+Build and install `leo` CLI. Take note that the dot at the end of the command is required.
+
+```bash
+# Build and install
+cargo install --path .
+```
+
+That will generate the executable ~/.cargo/bin/leo.
+
+To test if leo was installed successfully, try typing 
+```bash
+leo
+```
+
+You should see something like:
+![leo installation](./images/leo-install-success.png)
+
+For more details about how to use `leo` Cli, check out [this link](https://developer.aleo.org/leo/commands)
+
+---
+## Troubleshooting Common Issues with snarkOS
+
+- Compiling Woes: Ensure Rust v1.66+ is installed and use ./run-client.sh or ./run-prover.sh to initiate snarkOS.
+- Connectivity Issues: Check if ports 4133/tcp and 3033/tcp are open. Also, ensure you’ve used the right commands to start snarkOS.
+- Address Generation Issues: Execute source ~/.bashrc before the snarkos account new command. Check your spelling; the directory is /snarkOS, but the command is snarkos.
+
+To use the latest Leo features, install the Leo source code from GitHub.
+---
+
+## Install `leo` IDE Syntax Highlighting:
+
+Check out Guide [Here](https://developer.aleo.org/leo/installation#3-ide-syntax-highlighting)
