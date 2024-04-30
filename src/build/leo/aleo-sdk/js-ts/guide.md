@@ -273,7 +273,7 @@ const recordProvider = new NetworkRecordProvider(account, networkClient);
 // Initialize a program manager to talk to the Aleo network with the configured key and record providers
 const programName = "hello_hello.aleo";
 const programManager = new ProgramManager("https://api.explorer.aleo.org/v1", keyProvider, recordProvider);
-programManager.setHost("https://explorer.hamp.app/")
+programManager.setHost("https://api.explorer.aleo.org/v1")
 programManager.setAccount(account);
 
 // For example: "cacheKey": "hello_hello:hello"
