@@ -31,11 +31,41 @@ AleoBFT provers are computing core components of ZK proofs and receive shares of
 ## Bullshark and Narwhal
 
 ### Bullshark
-Bullshark is a DAG-based BFT protocol, it separate the network communication layer from the ordering (consensus) logic. Each message contains a set of transactions, and a set of references to previous messages. Together, all the messages form a DAG that keeps growing – a message is a vertex and its references are edges. A vertex can be a proposal and an edge can be a vote.
+Bullshark is a DAG(Directed Acyclic Graph)-based BFT (Byzantine Fault Tolerance) protocol, it separate the network communication layer from the ordering (consensus) logic. Each message contains a set of transactions, and a set of references to previous messages. Together, all the messages form a DAG that keeps growing – a message is a vertex and its references are edges. A vertex can be a proposal and an edge can be a vote.
 
 While different parties may see slightly different DAGs at any point in time due to the asynchronous nature of the network, each validator can still totally (fully) orders all the vertices (blocks) without sending a single extra message by just looking at its local view of the DAG.
 
-The DAG being used here is a round-based DAG, each vertex is associated with round number. Each validator broadcasts one message per round and each message references at least `n−f` messages in previous round. `n` is the total number of validating nodes in the network and `f` is the number of Byzantine nodes. Below shows a diagram of how it looks like with `n = 4` and `f = 1`.
+The DAG being used here is round-based DAG, each vertex is associated with round number, each round has at most `n` vertices. Each validator broadcasts one message per round and each message references at least `n − f` messages in previous round. `n` is the total number of validating nodes in the network and `f` is the number of Byzantine nodes. Below shows a diagram of how it looks like with `n = 4` and `f = 1`.
 
 ![DAG](./images/DAG1.png)
-Diagram credits: https://arxiv.org/pdf/2209.05633
+Diagram 1: Round-based DAG  
+Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
+
+### Ordering Logic
+A predefined leader is elected in every even round and the vertex associated with it is referred as anchor. Anchor is a more suitable term to describe here because unlike typical leader-based protocols where the leader has to do all the works at each round and disseminate data to all other nodes, the anchor here only get chosen to commit its casual history once gather enough votes (`2f + 1`) (3 in this example).  
+
+Each vertex in odd round can contribute one vote for the anchor in previous round. The anchor is commited if it has at least `f + 1` (2 in this example) votes. Once anchor is committed, its casual history is ordered by some deterministic rule. Green-outlined vertices shown in Diagram 2 is Anchor 2 (A2) casual history. Diagram 3 shows A2 is committed with 3 votes but A1 is not committed with only 1 vote.
+
+![DAG](./images/DAG2.png)
+Diagram 2: Anchor and casual history  
+Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
+
+![DAG](./images/DAG3.png)
+Diagram 3: Commit rule  
+Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
+
+Due to asynchronous nature of the network, the local views of the DAG might differ for different parties. A1 might have committed by other validator. As shown in diagram 4, validator 2 sees two (`f + 1`) votes for anchor A1 and thus commits it even though validator 1 has not.
+
+![DAG](./images/DAG4.png)
+Diagram 4: Different local view  
+Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
+
+Because to commit an anchor requires `f + 1` (2 in this example) votes and each vertex in the DAG has at least `n − f` (3 in this example) edges to vertices from the previous round, it is guaranteed that if some party commits an anchor A then all anchors in higher rounds will have a path to at least one vertex that voted for A, and thus will have a path to A.
+
+This is also means that if there is no path to a anchor A from a future anchor, then no party committed A and it is safe to skip it. Diagram 5 shows that A2 is not committed by any party and thus A2 is safe to skip.
+
+![DAG](./images/DAG5.png)
+Diagram 5: Skipping uncommitted anchor  
+Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
+
+When an achor is committed, the validator checks if there's a path to previous uncommitted anchor. If there is, it will commit the previous anchor as well. This process is repeated until it reaches previous committed anchor. Diagram 5 shows that A3 is committed and A1 is in the path of A3 thus A1 is committed as well.
