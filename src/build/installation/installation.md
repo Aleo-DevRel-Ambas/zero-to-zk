@@ -1,28 +1,29 @@
 # Setting up the environment
 
-The core Aleo software consists of 3 components: snarkOS, snarkVM, and Leo. snarkOS is the software that hosts the programs and is used by the validators to come to consensus and generate blocks. snarkVM is the virtual machine used to execute programs and generate circuits. Leo is the high level programming language that developers write, which first gets compiled to Aleo instructions, then to bytecode for the Aleo Virtual Machine to run.
+The core Aleo software consists of 3 components: snarkOS, snarkVM, and Leo. SnarkOS is the software that hosts the programs and is used by the validators to come to consensus and generate blocks. SnarkVM is the virtual machine used to execute programs and generate circuits. Leo is the high level programming language that developers write, which first gets compiled to Aleo instructions, then to bytecode for the Aleo Virtual Machine to run.
 
 This installation page will guide you how to install each of these 3 components.
-- snarkOS
-- snarkVM
+- SnarkOS
+- SnarkVM
 - Leo
 
 Depending on your system, you can get started programming with Leo in several ways:
-- [Linux and MacOS](#Setup-for-Linux-and-MacOS)
+- [Linux and MacOS](#setup-for-linux-and-macos)
 - [Docker](#docker)
 - Windows
-    - [WSL (Recommended for windows)](#Setup-for-Linux-and-MacOS)
-        - Follow the same instructions as the Linux installation
+    - [WSL (Recommended for windows)](#setup-for-linux-and-macos)
+        - Install WSL on Windows by following this [guide](https://learn.microsoft.com/en-us/windows/wsl/install)
+        - Follow the same instructions as the [Linux installation](#setup-for-linux-and-macos)
     - [Windows Installation with Git Bash](#windows-installation-with-git-bash)
 
 
-After installing the core software for Leo, you might want to install these syntax highlighting extensions for your code editor.
+After installing the core software for Leo, you might want to install these extensions for syntax highlighting for your code editor.
 - [IDE Syntax Highlighting](#install-leo-ide-syntax-highlighting)
     - VSCode
     - Jetbrains
     - Sublime Text
 
-You might want to install an Aleo wallet for a user interface.
+You might want to install an Aleo wallet for a wallet user interface.
 - [Aleo Wallet Installation](#aleo-wallet-installation)
     - Leo Wallet
     - Puzzle Wallet
@@ -256,6 +257,7 @@ leo
 ```
 
 You should see something like:
+
 ![leo installation](./images/leo-install-success.png)
 
 For more details about how to use `leo` Cli, check out [this link](https://developer.aleo.org/leo/commands)
@@ -294,6 +296,7 @@ Using a chrome browser, install either of these chrome extensions to get an Aleo
 - [Leo Wallet](https://chromewebstore.google.com/detail/leo-wallet/nebnhfamliijlghikdgcigoebonmoibm) 
 - [Puzzle Wallet](https://chromewebstore.google.com/detail/puzzle-aleo-wallet/fdchdcpieegfofnofhgdombfckhbcokj)
 
+---
 
 # Setting up a localnet
 
@@ -317,6 +320,7 @@ First build you program by running
 ```
 leo run {$TRANSITION_NAME} {$INPUTS}
 ```
+Although this command is used to run a function, it also builds your program.
 
 ## Deploy
 
