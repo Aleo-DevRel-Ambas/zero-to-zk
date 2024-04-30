@@ -13,7 +13,7 @@ Depending on your system, you can get started programming with Leo in several wa
 - Windows
     - [WSL (Recommended for windows)](#Setup-for-Linux-and-MacOS)
         - Follow the same instructions as the Linux installation
-    - [Windows Installation with Git Bash](#Windows-Installation-with-Git-Bash)
+    - [Windows Installation with Git Bash](#windows-installation-with-git-bash)
 
 
 After installing the core software for Leo, you might want to install these syntax highlighting extensions for your code editor.
@@ -51,13 +51,17 @@ Clone the `snarkOS` repository
 git clone https://github.com/AleoHQ/snarkOS.git --depth 1
 cd snarkOS
 
+# Switch to the testnet3 branch
+git checkout testnet3
+
 [For Ubuntu users] A helper script to install dependencies is available. From the snarkOS directory, run:
 
 ```bash
 ./build_ubuntu.sh
 ```
 
-Lastly, install snarkOS:
+Lastly, install snarkOS.
+Note that the dot at the end of the command is required.
 ```
 cargo install --path .
 ```
@@ -199,8 +203,7 @@ Rust runs on many platforms, and there are many ways to install Rust. This guide
 
 
 ### Install SnarkOS
-
-Clone the `snarkOS` repository
+Using git bash, clone the `snarkOS` repository
 
 ```bash
 git clone https://github.com/AleoHQ/snarkOS.git --depth 1
@@ -209,8 +212,7 @@ cargo install --locked --path .
 ```
 
 ### Install SnarkVM
-- Using git bash
-- Install snarkVM from the github [repo](https://github.com/AleoHQ/snarkvm)
+Using git bash, install snarkVM from the github [repo](https://github.com/AleoHQ/snarkvm)
 
 ```
 # Download the source code
@@ -291,3 +293,46 @@ To improve the developer experience, Aleo has provided extensions for syntax hig
 Using a chrome browser, install either of these chrome extensions to get an Aleo wallet. You can also request for testnet tokens from these wallets.
 - [Leo Wallet](https://chromewebstore.google.com/detail/leo-wallet/nebnhfamliijlghikdgcigoebonmoibm) 
 - [Puzzle Wallet](https://chromewebstore.google.com/detail/puzzle-aleo-wallet/fdchdcpieegfofnofhgdombfckhbcokj)
+
+
+# Setting up a localnet
+
+1) Open terminal
+2) Go to the folder where you cloned the snarkos repository [earlier](#install-snarkos).
+3) run the command 
+```
+./devnet.sh
+```
+4) If successful, you should see something like
+![snarkos running](./images/snarkos-local.png)
+
+5) Take note of the private key which shows on the screen, as it is populated with some aleo credits.
+
+---
+
+# Interacting with your program on testnet
+
+## Build Your Program
+First build you program by running 
+```
+leo run {$TRANSITION_NAME} {$INPUTS}
+```
+
+## Deploy
+
+```
+snarkos developer deploy {$PROGRAM_NAME} --private-key {$PRIVATE_KEY} --query "https://api.explorer.aleo.org/v1" --path ".build/" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast" --priority-fee 0
+```
+If successful, it should look something like
+![Deploy confirmation](./images/deploy-confirmation.png)
+
+The hash at the bottom of the image represents the transaction hash, which you can look up the transaction details on an [explorer](https://explorer.aleo.org)
+
+## Execute
+```
+snarkos developer execute {$PROGRAM_NAME} {$TRANSITION_NAME} {$INPUT_ARGUMENTS} --private-key {$PRIVATE_KEY} --query "https://api.explorer.aleo.org/v1" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast"
+```
+If successful, it should look something like
+![Execute confirmation](./images/execute-confirmation.png)
+
+The hash at the bottom of the image represents the transaction hash, which you can look up the transaction details on an [explorer](https://explorer.aleo.org)
