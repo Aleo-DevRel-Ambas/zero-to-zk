@@ -29,4 +29,4 @@ npm create aleo-app@latest
      
 ## More Information
 
-Based off of create-vite: https://github.com/vitejs/vite/tree/main/packages/create-vite
+Based on create-vite: https://github.com/vitejs/vite/tree/main/packages/create-vite
