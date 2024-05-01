@@ -37,7 +37,7 @@ While different parties may see slightly different DAGs at any point in time due
 
 The DAG being used here is round-based DAG, each vertex is associated with round number, each round has at most `n` vertices. Each validator broadcasts one message per round and each message references at least `n − f` messages in previous round. `n` is the total number of validating nodes in the network and `f` is the number of Byzantine nodes. Below shows a diagram of how it looks like with `n = 4` and `f = 1`.
 
-![DAG](./images/DAG1.png)
+![DAG1](./images/DAG1.png)
 Diagram 1: Round-based DAG  
 Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
 
@@ -46,17 +46,17 @@ A predefined leader is elected in every even round and the vertex associated wit
 
 Each vertex in odd round can contribute one vote for the anchor in previous round. The anchor is commited if it has at least `f + 1` (2 in this example) votes. Once anchor is committed, its casual history is ordered by some deterministic rule. Green-outlined vertices shown in Diagram 2 is Anchor 2 (A2) casual history. Diagram 3 shows A2 is committed with 3 votes but A1 is not committed with only 1 vote.
 
-![DAG](./images/DAG2.png)
+![DAG2](./images/DAG2.png)
 Diagram 2: Anchor and casual history  
 Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
 
-![DAG](./images/DAG3.png)
+![DAG3](./images/DAG3.png)
 Diagram 3: Commit rule  
 Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
 
 Due to asynchronous nature of the network, the local views of the DAG might differ for different parties. A1 might have committed by other validator. As shown in diagram 4, validator 2 sees two (`f + 1`) votes for anchor A1 and thus commits it even though validator 1 has not.
 
-![DAG](./images/DAG4.png)
+![DAG4](./images/DAG4.png)
 Diagram 4: Different local view  
 Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
 
@@ -64,8 +64,37 @@ Because to commit an anchor requires `f + 1` (2 in this example) votes and each 
 
 This is also means that if there is no path to a anchor A from a future anchor, then no party committed A and it is safe to skip it. Diagram 5 shows that A2 is not committed by any party and thus A2 is safe to skip.
 
-![DAG](./images/DAG5.png)
+![DAG5](./images/DAG5.png)
 Diagram 5: Skipping uncommitted anchor  
 Image from https://decentralizedthoughts.github.io/2022-06-28-DAG-meets-BFT/
 
 When an achor is committed, the validator checks if there's a path to previous uncommitted anchor. If there is, it will commit the previous anchor as well. This process is repeated until it reaches previous committed anchor. Diagram 5 shows that A3 is committed and A1 is in the path of A3 thus A1 is committed as well.
+
+Achors' histories are then ordered by some deterministic order and finally forming a total order or a chain of blocks.
+
+![DAG6](./images/DAG6.png)
+Diagram 6: Total order  
+Image from https://www.youtube.com/watch?v=aW1-XcGzJ8M
+
+### Narwhal
+Narwhal is a DAG-based Mempool abstraction protocol. Instead of the proposing validator sending all transactions in a block to the other validators they just send references or certificates of availability for blocks at each round.
+
+A single validator will run multiple workers as seperate processes or instances and a single primary. The workers are responsible for receiving transactions and stream transactions in batches to corresponding workers of other validators. Example worker 1 of validator 1 sends transactions to worker 1 of validator 2, worker 2 of validator 1 sends transactions to worker 2 of validator 2 and so on.
+
+![Narwhal](./images/Narwhal1.png)
+Diagram 7: Narwhal Design  
+image from https://www.youtube.com/watch?v=NGOXVSFzYdI
+
+Every workers within a validator sends batches hash (digest) to its primary. The primary then sends the digest to all other validators along with `n - f` certificates from previous round.  
+
+Each validator then checks if the digest is from the same round and if it's worker has stored transactions batches that corresponds to the digest. If it is, the validator cast a vote by sending its signature back to the sending primary.  
+
+A certificate is created after the sender collects `n - f` signatures from different validators and send this certificate back to all other validators. This certificate is then used as refernece in the next round.
+
+![Narwhal2](./images/Narwhal2.png)
+Diagram 8: A round in Narwhal    
+image from https://www.youtube.com/watch?v=NGOXVSFzYdI
+
+![Narwhal3](./images/Narwhal3.png)
+Diagram 8: Another view of a round
+image from https://www.youtube.com/watch?v=NGOXVSFzYdI
