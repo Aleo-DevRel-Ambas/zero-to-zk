@@ -7,7 +7,7 @@ Before we can dive into the explanation of a record, we first have to make sure 
 
 Autonomous Ledger Execution Offchain (Aleo) is a layer-1 blockchain that combines general-purpose programmability with privacy by default. 
 
-The core idea behind Aleo is ZEXE or zero-knowledge execution initially written in [research paper](https://eprint.iacr.org/2018/962.pdf) in 2018. It first introduced the record model which extends the UTXO model from Zcash and enables storing and encrypting arbitrary data (user assets and application states), rather than just values of specific assets or tokens.
+The core idea behind Aleo is ZEXE or zero-knowledge execution initially written in this [research paper](https://eprint.iacr.org/2018/962.pdf) in 2018. It first introduced the record model which extends the UTXO model from Zcash and enables storing and encrypting arbitrary data (user assets and application states), rather than just values of specific assets or tokens.
 
 
 ## Privacy
@@ -23,7 +23,7 @@ Initially, Aleo was aiming for function privacy as well (as detailed in the orig
 
 
 
-## Comparing storage states in Blockchains
+## Comparing state storage in blockchains
 There are two main state models used in blockchains - UTXO (unspent transaction output) and the account model (introduced by Ethereum). 
 
 Aleo uses a variation of the UTXO model - the record model.
@@ -34,7 +34,7 @@ Aleo uses a variation of the UTXO model - the record model.
 </p>
 
 <p align="center" width="100%">
-Diagram taken from <a href="https://www.galaxy.com/insights/research/mev-how-flashboys-became-flashbots/"> here</a>
+Source: <a href="https://www.galaxy.com/insights/research/mev-how-flashboys-became-flashbots/">galaxy.com</a>
 </p>
 <br/>
 
@@ -48,7 +48,7 @@ As such, anyone would be able to view the activities of any account, simply with
 </p>
 
 <p align="center" width="100%">
-Diagram taken from <a href="https://ethereum.org/en/develope.rs/docs/accounts/"> ethereum site</a>
+Source: <a href="https://ethereum.org/en/develope.rs/docs/accounts/"> ethereum.org</a>
 </p>
 <br/>
 
@@ -58,14 +58,14 @@ Diagram taken from <a href="https://ethereum.org/en/develope.rs/docs/accounts/">
 </p>
 
 <p align="center" width="100%">
-Diagram taken from <a href="https://www.lucassaldanha.com/ethereum-yellow-paper-walkthrough-2/"> here</a>
+Source: <a href="https://www.lucassaldanha.com/ethereum-yellow-paper-walkthrough-2/">Article by Lucas Saldanha</a>
 </p>
 
 <br/>
 
 
 ### Record Model
-In the record model, the application state, along with it's owner are encrypted and stored on the blockchain. 
+In the record model, the application state, along with its owner are encrypted and stored on the blockchain. 
 
 
 <p align="center" width="300">
@@ -73,7 +73,7 @@ In the record model, the application state, along with it's owner are encrypted 
 </p>
 
 <p align="center" width="100%">
-Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
+Source: <a href="https://eprint.iacr.org/2018/962.pdf"> Zexe: Enabling Decentralized Private Computation</a>
 </p>
 
 <br/>
@@ -85,13 +85,13 @@ Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a
 
 
 <p align="center" width="100%">
-Diagram taken from <a href="https://eprint.iacr.org/2018/962.pdf"> ZEXE paper</a>
+Source: <a href="https://eprint.iacr.org/2018/962.pdf"> Zexe: Enabling Decentralized Private Computation</a>
 </p>
 <br/>
 
 
 ## Record Model Explained
-Records are a fundamental data structure that can contain any arbitrary payload and are used for encoding user assets or application states. A record represents a certain state of a program in the global state, for example, the balance of an account or your identity document. 
+Records are a fundamental data structure that can contain any arbitrary payload and are used for encoding user assets or application states. Records represent a fragment of the global state kept on-chain. For example, the balance of your credits in a given account is composed by the multiple credit records that have your address as the owner.
 
 
 An Aleo record is serialized in the following format:
@@ -99,7 +99,7 @@ An Aleo record is serialized in the following format:
 | Parameter  |             Type             | Description                                                                                         |
 |------------|:----------------------------:|-----------------------------------------------------------------------------------------------------|
 |     owner    |            address           |                      The address public key of the owner of the program record                      |
-|    data    |    `modifiable`   | A data payload containing arbitrary application-dependent information                               |
+|    data    |    `arbitrary`   | A data payload containing arbitrary application-dependent information                               |
 |    nonce   |             group            |                            The serial number nonce of the program record                            |
 
 
@@ -149,11 +149,11 @@ In the record model, applications update their state by consuming records contai
 </p>
 
 <p align="center" width="100%">
-Diagram taken from <a href="https://adapulse.io/the-extensive-guide-on-eutxo-utxo-and-the-accounts-based-model/"> here</a>
+Source: <a href="https://adapulse.io/the-extensive-guide-on-eutxo-utxo-and-the-accounts-based-model/"> adapulse.io</a>
 </p>
 <br>
 
-The consumption and production of records is typically done in a transition function. A transaction in Aleo consists of 32 transitions, of which one is reserved for the transaction fee. 
+The consumption and production of records is typically done in a transition function. A transaction in Aleo can contain up to 32 transitions, one of which is reserved for the transaction fee. 
 
 
 
