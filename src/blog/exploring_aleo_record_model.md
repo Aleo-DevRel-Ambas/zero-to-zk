@@ -99,7 +99,7 @@ An Aleo record is serialized in the following format:
 | Parameter  |             Type             | Description                                                                                         |
 |------------|:----------------------------:|-----------------------------------------------------------------------------------------------------|
 |     owner    |            address           |                      The address public key of the owner of the program record                      |
-|    data    |    `arbitrary`   | A data payload containing arbitrary application-dependent information                               |
+|    data    |    Map<Identifier, Entry>   | A data payload containing arbitrary application-dependent information                               |
 |    nonce   |             group            |                            The serial number nonce of the program record                            |
 
 
