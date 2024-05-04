@@ -17,7 +17,7 @@ Provers are required to run specialized GPUs and CPUs to generate solutions in S
 
 Learn more about **provers** at [here](). (TODO: redirect to relative docs)  
 
-Validators play a crucial role in securing the network through AleoBFT (to be discussed further below) and must have at least 1 million AC of stakes to get started. The main function of validators is to verify ZK proofs and validate transactions before including them in a confirmed block.
+Validators play a crucial role in securing the network through AleoBFT (to be discussed further below) and must have at least 10 million AC of stakes to get started. The main function of validators is to verify ZK proofs and validate transactions before including them in a confirmed block.
 
 Learn more about **validators** at [here](https://aleo.org/faq/). (TODO: redirect to relative docs)  
 
@@ -26,7 +26,7 @@ AleoBFT is a new hybrid architecture for consensus. It is a DAG-based BFT protoc
 
 AleoBFT guarantees instant finality once validators achieve consensus for each block. With instant finality, not only validators enjoy better node stability but also creates smooth experience for applications developers and users. And this guarantee makes interoperability with other ecosystem simpler.
 
-AleoBFT provers are computing core components of ZK proofs and receive shares of coinbase rewards by solving and producing these coinbase proofs, which is called Proof of Succint Work (PoSW). This incentivise provers to also become a validator themselves by accumulate and stake 1 million ACs. By having broader rewards distribution, it helps Aleo Network to achieve greater proving capacity, further decentralise and scaling Aleo network and fortifies censorship-resistence guarantee.
+AleoBFT provers are computing core components of ZK proofs and receive shares of coinbase rewards by solving and producing these coinbase proofs, which is called Proof of Succint Work (PoSW). This incentivise provers to also become a validator themselves by accumulate and stake 10 million ACs. By having broader rewards distribution, it helps Aleo Network to achieve greater proving capacity, further decentralise and scaling Aleo network and fortifies censorship-resistence guarantee.
 
 ## Bullshark and Narwhal
 
