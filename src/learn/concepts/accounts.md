@@ -15,7 +15,7 @@ Program address are derived from ProgramID through a secure hash algorithm. Unli
 
 ## How to Store Assets on Aleo?
 
-![user_balance](/Users/cedric/Documents/AleoDevRel/DevDoc/zero-to-zk/src/learn/concepts/images/user_balance.png)
+![user_balance](./images/user_balance.png)
 
 Taking Aleo Credits as an example, user address can simultaneously possess Private Balance and Public Balance, both of which can be freely converted and used to pay Fee on the Aleo network.
 
