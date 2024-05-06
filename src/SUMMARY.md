@@ -24,7 +24,7 @@
 - [BUILD](./build/README.md)
   - [Leo](./build/leo/README.md)
     - [Overview](./build/leo/overview.md)
-    - [Installation](./build/leo/installation.md)
+    - [Installation](./build/installation/installation.md)
     - [HelloLeo](./build/leo/helloleo.md)
     - [Core Components](./build/leo/README.md)
       - [Language](./build/leo/language.md)
