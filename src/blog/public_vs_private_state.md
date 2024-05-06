@@ -21,7 +21,7 @@ There are generally four different types of privacy that relate to blockchains, 
 
 The core belief at Aleo is that privacy is necessary in order for blockchains to have mainstream adoption. For instance, how many of us would be comfortable revealing our bank account numbers if anyone in public were able to trace all the transactions we have ever made? 
 
-## Aleo Storage States 
+## Aleo State Storage 
 In order to have privacy native to a chain, Aleo uses a record model for application state storage, which is similar to the UTXO model in Bitcoin. However, Aleo provides developers the option to make application states public should they choose to do so. Public states are stored using the account model as done in Ethereum. 
 
 ### Storing Private States via Record
@@ -33,7 +33,7 @@ An Aleo record is serialized in the following format:
 | Parameter  |             Type             | Description                                                                                         |
 |------------|:----------------------------:|-----------------------------------------------------------------------------------------------------|
 |     owner    |            address           |                      The address public key of the owner of the program record                      |
-|    data    |    `modifiable`   | A data payload containing arbitrary application-dependent information                               |
+|    data    |    `arbitrary`   | A data payload containing arbitrary application-dependent information                               |
 |    nonce   |             group            |                            The serial number nonce of the program record                            |
 
 Records are tied to programs deployed on Aleo, and only the owner has permissions to alter the state of the record.
