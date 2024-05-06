@@ -21,7 +21,7 @@ Taking Aleo Credits as an example, user address can simultaneously possess Priva
 
 Private Balance is implemented based on the Record Model (similar to Bitcoin's UTXO model but more powerful), which can be likened to physical cash. Only the owner address corresponding to a Record's ViewKey can view the specific information of the Record and whether it has been spent.
 
-The creation of Records depends entirely on how Program are defined.
+The creation of Records depends entirely on how Programs are defined.
 
 To spend a Record, three conditions must be met:
 
