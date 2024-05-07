@@ -1,4 +1,4 @@
-# Setting up the environment
+# Installation
 
 The core Aleo software consists of 3 components: snarkOS, snarkVM, and Leo. SnarkOS is the software that hosts the programs and is used by the validators to come to consensus and generate blocks. SnarkVM is the virtual machine used to execute programs and generate circuits. Leo is the high level programming language that developers write, which first gets compiled to Aleo instructions, then to bytecode for the Aleo Virtual Machine to run.
 
