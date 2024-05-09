@@ -7,7 +7,7 @@ Aleo Network is run and maintained by three groups of participants:
 - **Provers** - Utilize specialized hardware to generate proofs and solve coinbase puzzles, contributing to the security of the network.
 - **Validators** - Validate transactions by verifying zero knowledge (ZK) proofs and actively participate in the consensus process on the network.
 
-Check [this FAQs](https://aleo.org/faq/) out in regards of the groups mentioned above.
+Check this [FAQs](https://aleo.org/faq/) out in regards of the groups mentioned above.
 
 Everyone can become a staker by locking up their Aleo Credits for a certain period of time to support the security of the Aleo Network. While the minimum amount to stake is 1 AC, stakers will only start earning rewards once they have staked at least 10 ACs. Stakers help lower the barriers to becoming a validator by delegating their stakes to validators of their choice.  
 
@@ -15,11 +15,11 @@ Learn more about **stakers** at [here](). (TODO: redirect to relative docs)
 
 Provers are required to run specialized GPUs and CPUs to generate solutions in SNARK proofs for PoSW (Proof-of-Succinct-Work) coinbase puzzles. They are rewarded based on their efficiency and effectiveness in generating solutions to the puzzles. It's important to note that provers do not produce blocks, but they are incentivized to improve the process of generating proofs, reducing costs, and decreasing latency for program execution.  
 
-Learn more about **provers** at [here](). (TODO: redirect to relative docs)  
+Learn more about **provers** at [here](./provers.md). (TODO: redirect to relative docs)  
 
 Validators play a crucial role in securing the network through AleoBFT (to be discussed further below) and must have at least 10 million AC of stakes to get started. The main function of validators is to verify ZK proofs and validate transactions before including them in a confirmed block.
 
-Learn more about **validators** at [here](https://aleo.org/faq/). (TODO: redirect to relative docs)  
+Learn more about **validators** at [here](./validators.md). (TODO: redirect to relative docs)  
 
 ## AleoBFT
 AleoBFT is a new hybrid architecture for consensus. It is a DAG-based BFT protocol inspired by Narwhal and Bullshark. It incentivises validators to preserve network liveness and provers to scale proving capacity for Aleo ecosystem.
@@ -91,10 +91,12 @@ Each validator then checks if the digest is from the same round and if it's work
 
 A certificate is created after the sender collects `n - f` signatures from different validators and send this certificate back to all other validators. This certificate is then used as refernece in the next round.
 
+Whenever a certificate is received, it means the block will be available for download. Therefore, certificate is often referred as a proof of availability and thus ensuring data availabilitiy.
+
 ![Narwhal2](./images/Narwhal2.png)
 Diagram 8: A round in Narwhal    
 image from https://www.youtube.com/watch?v=NGOXVSFzYdI
 
 ![Narwhal3](./images/Narwhal3.png)
-Diagram 8: Another view of a round
+Diagram 9: Another view of a round   
 image from https://www.youtube.com/watch?v=NGOXVSFzYdI
