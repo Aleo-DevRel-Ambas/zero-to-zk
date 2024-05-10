@@ -7,7 +7,7 @@ The concept of Zero Knowledge proofs was first introduced in 1985 in the paper [
 
 Zcash was one of the earliest chains to utilize the power of zero knowledge proofs to provide privacy to an account's balance. Unlike traditional cryptocurrencies like Bitcoin, where transaction details are publicly visible on the blockchain, Zcash enables users to shield their transactions, rendering them completely opaque to outside observers. It utilizes zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Argument of Knowledge), a type of zero-knowledge proof system that allows parties to verify the validity of a computation without revealing the underlying data. 
 
-In even more recent times, we have seen several Ethereum virtual machine-compatible Layer-2 chains that have employed zero-knowledge cryptography techniques to solve Ethereum's scalability issues. Polygon zkEVM, zkSync and Starknet, for example, are ZK rollups which have successfully reduced transaction fees significantly. All of them utilize zero-knowledge technology for scalability reasons.
+In even more recent times, we have seen several Ethereum virtual machine-compatible Layer-2 chains that have employed zero-knowledge cryptography techniques to solve Ethereum's scalability issues. They use zk-rollups, which compute multiple state changes off-chain, followed by posting the summary of those transactions and proofs on-chain. This helps to reduce transaction fees significantly. However, all of them utilize zero-knowledge technology mainly for scalability reasons.
 
 Aleo is a new layer-1 blockchain that combines general-purpose programmability with privacy by default. Unlike the other chains, Aleo is one of the first blockchains to utilize zero-knowledge for both privacy and scalability. 
 
@@ -53,16 +53,32 @@ An example of such a use case would be in a poker game. The state of the shuffle
 Aleo has a unique feature known as a view key for each account. The view key allows one to decrypt all transactions of it's account. It is different from the private key in that it does not provide the permission to spend the records.
 
 ## Private Inputs and Outputs of Programs
-Apart from stored program states being private, the program function inputs and outputs can also be made private of public. The following shows an example of an Aleo program which adds two input numbers. As shown, the developer has the choice to specify if the input and output of a program should be public or private.
+Apart from stored program states being private, the program function inputs and outputs can also be made private or public. The following shows an example of an Aleo program which adds two input numbers and stores the result into a record known as 'sum'. The developer has the choice to specify if the input of a program transition function should be public or private. The individual record fields can also be made public or private via the 'public' modifier. As Aleo is private by default, the fields are considered as private if the modifier is not specified.
 
-```
+<!-- ```
 function foo:
     input r0 as field.public;
     input r1 as field.private;
     add r0 r1 into r2;
     output r2 as field.private;
-```
+``` -->
 
+```
+program sum.aleo {
+    record sum {
+        public owner: address,
+        amount: u64,
+    }
+
+    transition main(public a: u64, b: u64) -> sum {
+        let c: u64 = a + b;
+        return sum {
+            owner: self.caller,
+            amount: c,
+        };
+    }
+}
+```
 ## Public vs. Private States
 
 The choice to store an application state as public or private should depend on the particular use case of the program. Instead of simply being a completely privacy or a public chain, Aleo believes in a two pronged approach by offering developers a choice. 
