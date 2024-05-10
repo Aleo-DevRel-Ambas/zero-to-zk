@@ -7,17 +7,17 @@ LastUpdate: 2024-05-06
 
 In Aleo, there are two types of address: user address and program address.
 
-User address have unique corresponding ViewKey and PrivateKey. In the Aleo network, we can create programs with privacy protection, where interactions between users and programs are invisible to everyone else. The **privacy of user addresses** is provided by the ViewKey, meaning whoever possesses the ViewKey corresponding to a user address has visibility over that address. The PrivateKey serves as proof of **ownership of the user address**; whoever possesses the PrivateKey corresponding to a user address owns all assets associated with that address. Address, ViewKey, and PrivateKey form a closely related set of mathematical objects designed based on cryptography. PrivateKey can derive ViewKey, and ViewKey can derive Address. This process is one-way; we cannot reverse-engineer ViewKey from Address or derive PrivateKey from ViewKey.
+User address have unique corresponding ViewKey and PrivateKey. In the Aleo network, we can create programs with privacy protection, where interactions between users and programs are invisible to everyone else. The **privacy of user addresses** is provided by the ViewKey, meaning whoever possesses the ViewKey corresponding to a user address has visibility over the records belonging to that address. The PrivateKey serves as proof of **ownership of the user address**; whoever possesses the PrivateKey corresponding to a user address owns all assets associated with that address. Address, ViewKey, and PrivateKey form a closely related set of mathematical objects designed based on cryptography. The PrivateKey can derive ViewKey, and the ViewKey can derive the Address. This process is one-way; we cannot reverse-engineer ViewKey from Address or derive PrivateKey from ViewKey.
 
 [Learn more details about how Address、ViewKey、PrivateKey work](TODO: add link to AVM)
 
-Program address are derived from ProgramID through a secure hash algorithm. Unlike user address, program address do not have corresponding ViewKeys or PrivateKeys. More accurately, while there theoretically exist ViewKey and PrivateKey uniquely determined by program address, no one can derive the corresponding ViewKey and PrivateKey from a program address. Since program address lack PrivateKey and ViewKey, the assets associated with program addresses are entirely controlled by the logic defined within the program. This is crucial for building decentralized apps (Dapps) on the Aleo network to protect the assets stored by users within Dapps.
+The program address is derived from ProgramID through a secure hash algorithm. Unlike the user address, the program address do not have corresponding ViewKeys or PrivateKeys. More accurately, while there theoretically exist ViewKey and PrivateKey uniquely determined by program address, no one can derive the corresponding ViewKey and PrivateKey from a program address. Since the program address lack PrivateKey and ViewKey, the assets associated with the program address are entirely controlled by the logic defined within the program. This is crucial for building decentralized apps (Dapps) on the Aleo network to protect the assets stored by users within Dapps.
 
 ## How to Store Assets on Aleo?
 
 ![user_balance](./images/user_balance.png)
 
-Taking Aleo Credits as an example, user address can simultaneously possess Private Balance and Public Balance, both of which can be freely converted and used to pay Fee on the Aleo network.
+Taking Aleo Credits as an example, the user address can simultaneously possess Private Balance and Public Balance, both of which can be freely converted and used to pay Fee on the Aleo network.
 
 Private Balance is implemented based on the Record Model (similar to Bitcoin's UTXO model but more powerful), which can be likened to physical cash. Only the owner address corresponding to a Record's ViewKey can view the specific information of the Record and whether it has been spent.
 
