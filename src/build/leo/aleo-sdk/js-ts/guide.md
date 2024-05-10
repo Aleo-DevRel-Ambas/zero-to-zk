@@ -244,7 +244,7 @@ network that anyone can trustlessly verify.
 This process can be thought of being executed in three steps:
 1. A program is run locally
 2. A proof that the program was executed correctly and that the outputs follow from the inputs is generated
-3. A transcript of the proof is generated client-side containing encrypted proof data (see [Section 2.6](#4-managing-records-and-private-state))
+3. A transcript of the proof is generated client-side containing encrypted proof data (see [Section 4](#4-managing-program-data-and-private-state))
    and any public outputs or state the user of the program wishes to reveal
 4. The proof transcript is posted to the Aleo network and verified by the Aleo validator nodes in a trustless manner
 5. If the proof is valid, it is stored and anyone can later verify the proof and read the outputs the author of the
