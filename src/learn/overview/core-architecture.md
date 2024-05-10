@@ -1,6 +1,6 @@
 # Core Architecture
 
-Aleo is focused on permissionless private programmability, this means the ability for anyone to codify any logic onto the Aleo blockchain wihtout asking for anyone's permission. Given the off chain execution environment explained in the zkCloud section and that state can be encrypted on chain then anyone can then execute this logic in a privacy preserving manner.
+Aleo is focused on permissionless private programmability, this means the ability for anyone to codify any logic onto the Aleo blockchain wihtout asking for anyone's permission. By utilising the off chain execution environment [SnarkVM](../zkcloud/snarkvm.md) and encryption then anyone can then execute this logic in a privacy preserving manner and broadcast it to the Aleo network. For detailed information, check the [zkCloud](../zkcloud/README.md) section.
 
 ## What makes Aleo permissionless, private and programmable ?
 
