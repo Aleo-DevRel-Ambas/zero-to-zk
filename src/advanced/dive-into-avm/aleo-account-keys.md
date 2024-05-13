@@ -13,7 +13,7 @@ An Aleo account is similar to accounts on other blockchain platforms but designe
 Aleo generates private and public keys using elliptic curve cryptography (ECC) through a process that involves several key components and cryptographic principles. The core of this process is based on the properties of elliptic curves and the discrete logarithm problem, which provides the security foundation for the cryptographic operations. Here's a detailed explanation of how Aleo leverages elliptic curve cryptography for generating private and public keys:
 
 - **Private Key**: generated as a random scalar from a finite field defined by the elliptic curve. This key must remain secret and secure.
-- **Public Key**: derived by multiplying the private key with the base point (a predefined point on the curve). This operation in ECC is non-invertible, which means you cannot derive the private key from the public key.
+- **View Key**: derived by multiplying the private key with the base point (a predefined point on the curve). This operation in ECC is non-invertible, which means you cannot derive the private key from the view key.
 - **Compute Key:** similarly to the view key, it’s derived from the private key. It can be used to delegate the execution of a transaction to a third party.
 - **Address:** derived from the compute key
 
