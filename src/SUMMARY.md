@@ -2,6 +2,7 @@
 
 - [Overview](./overview.md)
 - [LEARN](./learn/README.md)
+
   - [Core Architecture](./learn/core-architecture.md)
   - [Concepts](./learn/concepts/README.md)
     - [Accounts](./learn/concepts/accounts.md)
@@ -23,7 +24,9 @@
     - [Consensus](./learn/network/concensus.md)
 
 - [BUILD](./build/README.md)
+
   - [Leo](./build/leo/README.md)
+
     - [Overview](./build/leo/overview.md)
     - [Installation](./build/installation/installation.md)
     - [HelloLeo](./build/leo/helloleo.md)
@@ -41,8 +44,10 @@
       - [Leo Syntax Cheatsheet](./build/leo/resources/leo-syntax-cheatsheet.md)
       - [Developer Resources](./build/leo/resources/developer-resources.md)
     - [Aleo SDK](./build/leo/aleo-sdk/README.md)
+
       - [Overview](./build/leo/aleo-sdk/overview.md)
       - [Javascript/TypeScript](./build/leo/aleo-sdk/js-ts/README.md)
+
         - [Guide](./build/leo/aleo-sdk/js-ts/guide.md)
         - [Account](./build/leo/aleo-sdk/js-ts/account.md)
         - [Aleo Network Client](./build/leo/aleo-sdk/js-ts/aleo-network-client.md)
@@ -52,6 +57,7 @@
         - [Installation](./build/leo/aleo-sdk/create-aleo-app/installation.md)
         - [React + JS + Leo Tutorial](./build/leo/aleo-sdk/create-aleo-app/react-js-leo-tutorial.md)
       - [Wasm](./build/leo/aleo-sdk/wasm/README.md)
+
         - [Installation](./build/leo/aleo-sdk/wasm/installation.md)
         - [NodeJS + Browser](./build/leo/aleo-sdk/wasm/nodejs-browser.md)
         - [Browser(Multi-Threaded)](./build/leo/aleo-sdk/wasm/browser-multi-threaded.md)
@@ -59,12 +65,13 @@
       - [Python](./build/leo/aleo-sdk/python/README.md)
         - [Aleo SDK](./build/leo/aleo-sdk/python/aleo-sdk.md)
         - [zkML Transpiler](./build/leo/ale-sdk/python/zkml-transpiler.md)
+
     - [Development Netowrk](./build/development-network/README.md)
     - [snarkOS Node RPC](./build/snarkos-node-rpc/README.md)
     - [Data and analytics](./build/data-and-analytics/README.md)
+
   - [Advanced](./advanced/README.md)
     - [InclusionProof](./advanced/inclusion-proof..md)
     - [Dive into AVM](./advanced/dive-into-avm/README.md)
-      - [Circuit](./advanced/dive-into-avm/cicuit.md)
-      - [ProvingKey](./advanced/dive-into-avm/proving-key.md)
-      - [VerifyingKey](./advanced/dive-into-avm/verifying-key.md)
+      - [Circuit](./advanced/dive-into-avm/circuits-r1cs.md)
+      - [Aleo Account](./advanced/dive-into-avm/aleo-account-keys.md)
