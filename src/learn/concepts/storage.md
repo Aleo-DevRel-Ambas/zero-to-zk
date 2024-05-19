@@ -88,7 +88,7 @@ This process enables users to securely and privately transfer data and values ac
 
 The code for encryption and decryption is available in the snarkVM sections, which can be accessed at the [encrypt](https://github.com/AleoHQ/snarkVM/blob/testnet3/circuit/program/src/data/record/encrypt.rs) and [decrypt](https://github.com/AleoHQ/snarkVM/blob/testnet3/circuit/program/src/data/record/decrypt.rs) pages, respectively.
 
-Additionally, users can decrypt their encrypted records using their view key via a web interface available at [Aleo Tools](https://aleo.tools/record). This feature allows for the practical application of decryption processes directly through a browser.
+Additionally, users can decrypt their encrypted records using their view key via a web interface available at [Provable Tools](https://www.provable.tools/record). This feature allows for the practical application of decryption processes directly through a browser.
 
 ## Consuming Records
 
