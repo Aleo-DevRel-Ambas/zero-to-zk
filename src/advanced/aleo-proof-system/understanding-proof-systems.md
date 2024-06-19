@@ -1,6 +1,6 @@
 # Understanding proof systems
 
-Most proof system can be described in three mayor phases: **Preprocessing, Proving and Verification**. Let’s take a look at each phase:
+Most proof system can be described in three major phases: **Preprocessing, Proving and Verification**. Let’s take a look at each phase:
 
 ## Preprocessing Phase (Offline)
 
