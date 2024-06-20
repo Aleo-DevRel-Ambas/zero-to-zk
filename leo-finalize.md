@@ -108,7 +108,7 @@ program test1.aleo {
 
 2. Futures:
 
-- A Future is an object representing a value that will be available at some point in the future. In the async/await model, functions do not return values directly; instead, they return Futures.
+- A Future is an object representing a value that will be available at some point in the future. In the async/await syntax, functions do not return values directly; instead, they return Futures.
 
 ### Rules of Async/Await Syntax
 1. Calling Async Functions:
