@@ -4,7 +4,7 @@ Most proof system can be described in three major phases: **Preprocessing, Provi
 
 ## Preprocessing Phase (Offline)
 
-- **Indexing the Circuit:** The prover preprocesses the circuit to produce an index consisting of low-degree polynomials that encode the circuit's description. The index  $i = (F, n, m, A, B, C)$  includes finite field $F$, size parameters $n$ and $m$, and coefficient matrices $A, B, C$.
+- **Indexing the Circuit:** The prover preprocesses the circuit to produce an index consisting of low-degree polynomials that encode the circuit's description. The index $i = (F, n, m, A, B, C)$ includes finite field $F$, size parameters $n$ and $m$, and coefficient matrices $A, B, C$.
 - **Commitments to Polynomials:** The prover generates commitments to these polynomials using a polynomial commitment scheme. This involves computing commitments such as $c = p(\beta)G$, where $p$ is the polynomial and $\beta$ is a secret parameter.
 
 ## Proving Phase (Online)
