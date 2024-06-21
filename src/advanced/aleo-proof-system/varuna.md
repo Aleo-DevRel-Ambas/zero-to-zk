@@ -19,7 +19,6 @@ For instance, Varuna may use a more efficient basis for polynomial representatio
 For a polynomial $p(X)$ of degree $d \leq D$ with coefficients $\{a_0, a_1, \ldots, a_d\}$, the commitment $c$ to $p(X)$ is computed as:
 
 $$
-
 c = p(\beta)G = \left( \sum_{i=0}^{d} a_i \beta^i \right) G
 $$
 
@@ -32,14 +31,13 @@ The enhancements may include more efficient algorithms for polynomial division a
 To prove that $p(z) = v$ for some $z \in F$, compute the witness polynomial $w(X)$:
 
 $$
-
 w(X) = \frac{p(X) - p(z)}{X - z}
 $$
 
 The commitment to $w(X)$ is:
 
 $$
-⁍.
+\pi = w(\beta)G
 $$
 
 The verifier checks the bilinear pairing equation:

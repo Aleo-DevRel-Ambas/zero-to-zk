@@ -6,7 +6,7 @@ The white paper that introduced [Marlin](https://eprint.iacr.org/2019/1047.pdf) 
 
 - **Polynomial Commitments:** Marlin uses an efficient polynomial commitment scheme that is extractable and hiding, ensuring that no information about the committed polynomial is revealed other than what is explicitly shown in the evaluations.
 - **Algebraic Holographic Proofs (AHPs):** These are used to preprocess the circuit, transforming it into low-degree polynomials. AHPs ensure that the verifier only needs to make a small number of queries, significantly reducing verification time.
-- **Universal and Updatable SRS:** Marlin’s SRS can be used for any circuit size and can be updated securely by any party, simplifying the setup process and improving trust assumptions.
+- **Universal and Updatable SRS:** Marlin’s SRS can be used for any circuit size (bounded by available memory and computational capabilities) and can be updated securely by any party, simplifying the setup process and improving trust assumptions.
 
 ## Algebraic Holographic Proofs (AHPs)
 
@@ -23,7 +23,7 @@ The protocol relies on efficiently handling sumchecks and leveraging algebraic p
 
 ## SRS Universality
 
-The universal and updatable SRS of Marlin supports any circuit size without requiring a trusted setup ceremony for each circuit. This capability is crucial for the flexibility and scalability of Aleo’s private applications, which can range from simple transactions to complex smart contracts.
+The universal and updatable SRS of Marlin supports any circuit size (bounded by available memory and computational capabilities) without requiring a trusted setup ceremony for each circuit. This capability is crucial for the flexibility and scalability of Aleo’s private applications, which can range from simple transactions to complex smart contracts.
 
 Aleo uses the efficient encoding and verification properties of AHPs to ensure that proofs remain succinct and verification times are kept minimal. This efficiency is particularly beneficial in a blockchain context, where verifying transactions quickly and securely is paramount.
 

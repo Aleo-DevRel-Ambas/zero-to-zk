@@ -25,7 +25,6 @@ These keys are fundamental for committing to polynomials and verifying their eva
 The prover commits to a polynomial p(X) of degree $d \leq D$ with coefficients $\{a_0, a_1, \ldots, a_d\}$. The commitment $c$ to $p(X)$ is computed as:
 
 $$
-
 c = p(\beta)G = \left( \sum_{i=0}^{d} a_i \beta^i \right) G
 $$
 
@@ -36,14 +35,12 @@ This step effectively binds the polynomial to a single group element, ensuring t
 When generating an evaluation proof, the prover needs to demonstrate that $p(z) = v$ for some $z \in F$. To achieve this, the prover computes the witness polynomial $w(X)$:
 
 $$
-
 w(X) = \frac{p(X) - p(z)}{X - z}
 $$
 
 The commitment to $w(X)$ is:
 
 $$
-
 \pi = w(\beta)G.
 $$
 
@@ -52,19 +49,16 @@ The existence and validity of the witness polynomial $w(X)$ confirm that $p(z) =
 For batch evaluation proofs, where multiple polynomials are evaluated at a single point z, the prover combines the polynomials into a single linear combination using a random scalar $\xi$. Let $p_1, p_2, \ldots, p_n$ be the polynomials and $v_1, v_2, \ldots, v_n$ their respective evaluations at $z$. The combined polynomial $p(X)$ is:
 
 $$
-
 p(X) = \sum_{i=1}^{n} \xi^i p_i(X)
 $$
 
 And the combined commitment with the combined evaluation $v$ are as follow:
 
 $$
-
 c = \sum_{i=1}^{n} \xi^i c_i
 $$
 
 $$
-
 v = \sum_{i=1}^{n} \xi^i v_i
 $$
 
@@ -75,7 +69,6 @@ The proof $\pi$ for $p(X)$ at $z$ is then generated accordingly.
 In the verification phase, the verifier needs to check the validity of the evaluation proofs. For a single evaluation, the verifier confirms that $p(z) = v$ using the proof $\pi$. This is done by verifying the bilinear pairing equation:
 
 $$
-
 e(c - vG, H) = e(\pi, \beta H - zH)
 $$
 
@@ -84,7 +77,6 @@ If this equation holds, the proof is valid, confirming that $p(z) = v$.
 For batch evaluations, the verifier checks the combined proof by using the combined commitment $c$ and evaluation $v$. The verifier ensures the validity by verifying the pairing equation:
 
 $$
-
 e\left( \sum_{i=1}^{n} \xi^i (c_i - v_i G), H \right) = e\left( \pi, \beta H - z H \right)
 $$
 
