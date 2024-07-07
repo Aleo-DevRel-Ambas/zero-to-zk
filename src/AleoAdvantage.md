@@ -25,4 +25,5 @@ Mina is a lightweight blockchain that uses zk-SNARKs to enable a small, constant
     Aleo Uses a Proof of Work (PoW)-inspired mechanism called Proof of Succinct Work (PoSW), incorporating zk-SNARKs to enhance privacy and efficiency.
 
 
-	•	Mina: It focuses on interoperability with other blockchains and the broader internet. Its lightweight nature allows it to integrate easily with various platforms and applications. Mina Utilizes a Proof of Stake (PoS) variant called Ouroboros Samasika, designed for maintaining a lightweight blockchain.
+	•	Mina: It focuses on interoperability with other blockchains and the broader internet. Its lightweight nature allows it to integrate easily with various platforms and applications. Mina Utilizes a Proof of Stake (PoS) variant called Ouroboros Samasika, designed for maintaining a lightweight blockchain. 
+    With Mina you cannot pay the fee privately, but with Aleo you can pay the fee privately.
