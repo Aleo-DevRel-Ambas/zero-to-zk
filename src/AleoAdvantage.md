@@ -22,5 +22,7 @@ Aleo vs Mina
 Mina is a lightweight blockchain that uses zk-SNARKs to enable a small, constant-sized blockchain. It uses recursive zk-SNARKs to compress the entire blockchain into a snapshot that can be stored on a user's device. Mina is designed to be accessible to everyone, even on mobile devices.
 
 	•	Aleo: It a standalone blockchain platform designed to be an ecosystem for private applications. It aims to create an environment where developers can build privacy-preserving dApps independently of other blockchains.
-    
-	•	Mina: It focuses on interoperability with other blockchains and the broader internet. Its lightweight nature allows it to integrate easily with various platforms and applications.
+    Aleo Uses a Proof of Work (PoW)-inspired mechanism called Proof of Succinct Work (PoSW), incorporating zk-SNARKs to enhance privacy and efficiency.
+
+
+	•	Mina: It focuses on interoperability with other blockchains and the broader internet. Its lightweight nature allows it to integrate easily with various platforms and applications. Mina Utilizes a Proof of Stake (PoS) variant called Ouroboros Samasika, designed for maintaining a lightweight blockchain.
