@@ -49,11 +49,12 @@ Note: After installation, if your `git` and `rustc` command doesn't work, try to
 Clone the `snarkOS` repository
 
 ```bash
-git clone https://github.com/AleoHQ/snarkOS.git --depth 1
+git clone https://github.com/ProvableHQ/snarkOS.git
 cd snarkOS
 
-# Switch to the testnet3 branch
-git checkout testnet3
+# Switch to the testnet-beta branch
+git checkout testnet-beta
+```
 
 [For Ubuntu users] A helper script to install dependencies is available. From the snarkOS directory, run:
 
@@ -77,7 +78,7 @@ You should see something like:
 
 Please ensure ports 4133/tcp and 3033/tcp are open on your router and OS firewall.
 
-For more details about how to use `snarkOS` CLI, check out [this link](https://github.com/AleoHQ/snarkOS).
+For more details about how to use `snarkOS` CLI, check out [this link](https://github.com/AleoNet/snarkOS).
 
 If you would like to run a local devnet, run the command
 
@@ -85,14 +86,24 @@ If you would like to run a local devnet, run the command
 ./devnet.sh
 ```
 
-You would however, first need to install tmux. Instructions can be found on the github [repo](https://github.com/AleoHQ/snarkOS)
+You would however, first need to install tmux. Instructions can be found on the github [repo](https://github.com/AleoNet/snarkOS)
+
+Please ensure ports 4133/tcp and 3033/tcp are open on your router and OS firewall.
+
+For more details about how to use `snarkOS` CLI, check out [this link](https://developer.aleo.org/testnet/getting_started/installation/#22-installation).
+
+## Troubleshooting Common Issues with snarkOS
+
+- Compiling Woes: Ensure Rust v1.66+ is installed and use ./run-client.sh or ./run-prover.sh to initiate snarkOS.
+- Connectivity Issues: Check if ports 4133/tcp and 3033/tcp are open. Also, ensure you’ve used the right commands to start snarkOS.
+- Address Generation Issues: Execute source ~/.bashrc before the snarkos account new command. Check your spelling; the directory is /snarkOS, but the command is snarkos.
 
 ### Install SnarkVM
-- Install snarkVM from the github [repo](https://github.com/AleoHQ/snarkvm)
+- Install snarkVM from the github [repo](https://github.com/AleoNet/snarkvm)
 
 ```
 # Download the source code
-git clone https://github.com/AleoHQ/snarkvm && cd snarkvm
+git clone https://github.com/AleoNet/snarkvm && cd snarkvm
 
 # Install snarkVM
 $ cargo install --path .
@@ -106,13 +117,16 @@ You should see:
 ![snarkVM command](./images/snarkvm-install-success.png)
 
 
-### Install Leo
+
+
+### Install leo
 
 Clone the `leo` repository
 
 ```bash
 # Download the source code
-git clone https://github.com/AleoHQ/leo
+git clone https://github.com/ProvableHQ/leo/
+git checkout testnet-beta
 cd leo
 ```
 
@@ -204,12 +218,25 @@ Rust runs on many platforms, and there are many ways to install Rust. This guide
 
 
 ### Install SnarkOS
-Using git bash, clone the `snarkOS` repository
+Clone the `snarkOS` repository
 
 ```bash
-git clone https://github.com/AleoHQ/snarkOS.git --depth 1
+git clone https://github.com/ProvableHQ/snarkOS.git
 cd snarkOS
-cargo install --locked --path .
+
+# Switch to the testnet-beta branch
+git checkout testnet-beta
+```
+[For Ubuntu users] A helper script to install dependencies is available. From the snarkOS directory, run:
+
+```bash
+./build_ubuntu.sh
+```
+
+Lastly, install snarkOS:
+
+```
+cargo install --path .
 ```
 
 ### Install SnarkVM
@@ -217,7 +244,7 @@ Using git bash, install snarkVM from the github [repo](https://github.com/AleoHQ
 
 ```
 # Download the source code
-git clone https://github.com/AleoHQ/snarkvm && cd snarkvm
+git clone https://github.com/AleoNet/snarkvm && cd snarkvm
 
 # Install snarkVM
 $ cargo install --path .
@@ -235,14 +262,16 @@ You should see:
 ### Install Leo
 This is similar to the Linux/MacOS instructions.
 
-Clone the `leo` repository using git bash
+Clone the `leo` repository
+
 ```bash
 # Download the source code
-git clone https://github.com/AleoHQ/leo
+git clone https://github.com/ProvableHQ/leo/
+git checkout testnet-beta
 cd leo
 ```
 
-Build and install `leo` CLI. Take note that the dot at the end of the command is required.
+Build and install `leo` CLI
 
 ```bash
 # Build and install
@@ -325,17 +354,23 @@ Although this command is used to run a function, it also builds your program.
 ## Deploy
 
 ```
-snarkos developer deploy {$PROGRAM_NAME} --private-key {$PRIVATE_KEY} --query "https://api.explorer.aleo.org/v1" --path ".build/" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast" --priority-fee 0
+# If you have the private key present in your .env file
+leo deploy
+
+#Otherwise
+leo deploy --private-key <your_pivate_key>
 ```
 If successful, it should look something like
-![Deploy confirmation](./images/deploy-confirmation.png)
-
+![Deploy Confirmation](./images/deployTokenUpdated.png)
 The hash at the bottom of the image represents the transaction hash, which you can look up the transaction details on an [explorer](https://explorer.aleo.org)
 
 ## Execute
+
+You can now easily execute programs on-chain, even if they don't match the local directory. Make sure to have a funded private key in .env or specify one using --private-key.
 ```
-snarkos developer execute {$PROGRAM_NAME} {$TRANSITION_NAME} {$INPUT_ARGUMENTS} --private-key {$PRIVATE_KEY} --query "https://api.explorer.aleo.org/v1" --broadcast "https://api.explorer.aleo.org/v1/testnet3/transaction/broadcast"
+leo execute --program {PROGRAM_NAME} --broadcast {transition/function name} <ADDRESS> 500u64
 ```
+
 If successful, it should look something like
 ![Execute confirmation](./images/execute-confirmation.png)
 
