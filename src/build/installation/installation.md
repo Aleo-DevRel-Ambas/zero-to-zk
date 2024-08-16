@@ -347,7 +347,7 @@ Using a chrome browser, install either of these chrome extensions to get an Aleo
 ## Build Your Program
 First build you program by running 
 ```
-leo run {$TRANSITION_NAME} {$INPUTS}
+leo run  <transition_function_name> <function_inputs_separated_by_space>
 ```
 Although this command is used to run a function, it also builds your program.
 
@@ -368,8 +368,10 @@ The hash at the bottom of the image represents the transaction hash, which you c
 
 You can now easily execute programs on-chain, even if they don't match the local directory. Make sure to have a funded private key in .env or specify one using --private-key.
 ```
-leo execute --program {PROGRAM_NAME} --broadcast {transition/function name} <ADDRESS> 500u64
+leo execute --program <program_name> --broadcast <transition_function_name> <function_inputs_separated_by_space>
 ```
+
+
 
 If successful, it should look something like
 ![Execute confirmation](./images/execute-confirmation.png)
